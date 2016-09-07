@@ -9,19 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var WelcomeComponent = (function () {
+    function WelcomeComponent() {
     }
-    AppComponent.prototype.ngOnInit = function () { };
-    AppComponent = __decorate([
+    WelcomeComponent.prototype.ngOnInit = function () { };
+    WelcomeComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'app',
-            template: '<router-outlet></router-outlet>'
+            selector: 'welcome',
+            templateUrl: 'welcome.component.html',
+            styleUrls: ['welcome.component.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], WelcomeComponent);
+    return WelcomeComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.WelcomeComponent = WelcomeComponent;
+//# sourceMappingURL=welcome.component.js.map

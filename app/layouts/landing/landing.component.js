@@ -9,19 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var icon_1 = require('@angular2-material/icon');
+var LandingComponent = (function () {
+    function LandingComponent(mdIconRegistry) {
     }
-    AppComponent.prototype.ngOnInit = function () { };
-    AppComponent = __decorate([
+    LandingComponent.prototype.ngOnInit = function () { };
+    LandingComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'app',
-            template: '<router-outlet></router-outlet>'
+            selector: 'landing',
+            templateUrl: 'landing.component.html',
+            viewProviders: [icon_1.MdIconRegistry],
+            styleUrls: ['landing.component.css']
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [icon_1.MdIconRegistry])
+    ], LandingComponent);
+    return LandingComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.LandingComponent = LandingComponent;
+//# sourceMappingURL=landing.component.js.map

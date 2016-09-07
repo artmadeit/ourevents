@@ -10,17 +10,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
-var card_1 = require('@angular2-material/card');
-var toolbar_1 = require('@angular2-material/toolbar');
-var icon_1 = require('@angular2-material/icon');
 var app_component_1 = require('./app.component');
+var app_routing_1 = require('./app.routing');
+var landing_module_1 = require('./layouts/landing/landing.module');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, card_1.MdCardModule, icon_1.MdIconModule, toolbar_1.MdToolbarModule],
-            declarations: [app_component_1.AppComponent],
+            imports: [
+                platform_browser_1.BrowserModule,
+                app_routing_1.routing,
+                landing_module_1.LandingModule
+            ],
+            declarations: [
+                app_component_1.AppComponent
+            ],
+            providers: [
+                app_routing_1.appRoutingProviders
+            ],
             bootstrap: [app_component_1.AppComponent],
         }), 
         __metadata('design:paramtypes', [])

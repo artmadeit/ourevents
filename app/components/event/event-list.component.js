@@ -9,19 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var EventListComponent = (function () {
+    function EventListComponent() {
     }
-    AppComponent.prototype.ngOnInit = function () { };
-    AppComponent = __decorate([
+    EventListComponent.prototype.ngOnInit = function () { };
+    EventListComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'app',
-            template: '<router-outlet></router-outlet>'
+            selector: 'event-list',
+            templateUrl: 'event-list.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], EventListComponent);
+    return EventListComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.EventListComponent = EventListComponent;
+//# sourceMappingURL=event-list.component.js.map
