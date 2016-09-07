@@ -1,0 +1,24 @@
+/*Navbar*/
+.fill-remaining {
+    flex: 1 1 auto;
+}
+
+/*slide*/
+.jumbotron {
+    background-image: url('img/background.jpg');
+    height: 400px;
+}
+
+.jumbotron h1{
+    color: white;
+    font-size:3em;
+    text-transform: uppercase;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.jumbotron.absolute-background .content {
+    top: 30%;
+}
