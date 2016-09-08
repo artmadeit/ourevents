@@ -9,29 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var event_service_1 = require('./event.service');
-var EventListComponent = (function () {
-    function EventListComponent(eventService) {
-        this.eventService = eventService;
+var EventCreateComponent = (function () {
+    function EventCreateComponent() {
     }
-    EventListComponent.prototype.ngOnInit = function () {
-        this.getEvents();
-    };
-    EventListComponent.prototype.getEvents = function () {
-        var _this = this;
-        this.eventService
-            .list()
-            .then(function (events) { return _this.events = events; });
-    };
-    EventListComponent = __decorate([
+    EventCreateComponent.prototype.ngOnInit = function () { };
+    EventCreateComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'event-list',
-            templateUrl: 'event-list.component.html'
+            selector: 'event-create',
+            templateUrl: 'event-create.component.html'
         }), 
-        __metadata('design:paramtypes', [event_service_1.EventService])
-    ], EventListComponent);
-    return EventListComponent;
+        __metadata('design:paramtypes', [])
+    ], EventCreateComponent);
+    return EventCreateComponent;
 }());
-exports.EventListComponent = EventListComponent;
-//# sourceMappingURL=event-list.component.js.map
+exports.EventCreateComponent = EventCreateComponent;
+//# sourceMappingURL=event-create.component.js.map

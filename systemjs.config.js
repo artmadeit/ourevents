@@ -66,6 +66,14 @@
       '@angular2-material/icon': {
         format: 'cjs',
         main: 'icon.umd.js'
+      },
+      '@angular2-material/input': {
+        format: 'cjs',
+        main: 'input.umd.js'
+      },
+      '@angular2-material/list': {
+        format: 'cjs',
+        main: 'list.umd.js'
       }
       
     }

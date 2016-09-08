@@ -1,1 +1,12 @@
-<h1>Una lista de eventosss</h1>
+<h1>Eventos</h1>
+<a routerLink="/eventos/crear" md-fab color="warn">
+    <md-icon>add</md-icon>
+</a>
+<div *ngIf="events">
+  <div *ngFor="let event of events"> 
+  <h3>
+    {{event.name}}
+  </h3>
+  <p>{{event.description}}</p>
+</div>
+</div>
