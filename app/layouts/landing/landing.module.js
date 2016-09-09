@@ -18,6 +18,7 @@ var icon_1 = require('@angular2-material/icon');
 var toolbar_1 = require('@angular2-material/toolbar');
 var list_1 = require('@angular2-material/list');
 var input_1 = require('@angular2-material/input');
+var menu_1 = require('@angular2-material/menu');
 var core_2 = require('angular2-google-maps/core');
 var landing_component_1 = require('./landing.component');
 var login_component_1 = require('../../components/auth/login.component');
@@ -43,8 +44,9 @@ var LandingModule = (function () {
                 toolbar_1.MdToolbarModule,
                 list_1.MdListModule,
                 input_1.MdInputModule,
+                menu_1.MdMenuModule.forRoot(),
                 core_2.AgmCoreModule.forRoot({
-                    apiKey: config_1.config.GOOGLE_MAP
+                    apiKey: config_1.config.googleMapAPIKey
                 }),
                 landing_routing_1.landingRouting
             ],

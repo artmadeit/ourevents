@@ -10,10 +10,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var icon_1 = require('@angular2-material/icon');
+var auth_service_1 = require('../../components/auth/auth.service');
 var LandingComponent = (function () {
-    function LandingComponent(mdIconRegistry) {
+    function LandingComponent(mdIconRegistry, authService) {
+        this.authService = authService;
     }
     LandingComponent.prototype.ngOnInit = function () { };
+    Object.defineProperty(LandingComponent.prototype, "isLoggedIn", {
+        get: function () {
+            return this.authService.isLoggedIn;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(LandingComponent.prototype, "user", {
+        get: function () {
+            return this.authService.user;
+        },
+        enumerable: true,
+        configurable: true
+    });
     LandingComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
@@ -22,7 +38,7 @@ var LandingComponent = (function () {
             viewProviders: [icon_1.MdIconRegistry],
             styleUrls: ['landing.component.css']
         }), 
-        __metadata('design:paramtypes', [icon_1.MdIconRegistry])
+        __metadata('design:paramtypes', [icon_1.MdIconRegistry, auth_service_1.AuthService])
     ], LandingComponent);
     return LandingComponent;
 }());

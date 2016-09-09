@@ -9,34 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
 var auth_service_1 = require('./auth.service');
+var router_1 = require('@angular/router');
 var LoginComponent = (function () {
     function LoginComponent(authService, router) {
         this.authService = authService;
         this.router = router;
-        this.setMessage();
+        this.user = {
+            email: '',
+            password: ''
+        };
     }
-    LoginComponent.prototype.setMessage = function () {
-        this.message = 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
-    };
     LoginComponent.prototype.login = function () {
         var _this = this;
-        this.message = 'Trying to log in ...';
-        this.authService.login().subscribe(function () {
-            _this.setMessage();
+        this.authService.login(this.user).subscribe(function () {
             if (_this.authService.isLoggedIn) {
-                // Get the redirect URL from our auth service
-                // If no redirect has been set, use the default
-                var redirect = _this.authService.redirectUrl ? _this.authService.redirectUrl : '/crisis-center/admin';
-                // Redirect the user
-                _this.router.navigate([redirect]);
+                _this.router.navigate(['/']);
+            }
+            else {
+                alert("intentalo otra vez");
             }
         });
     };
     LoginComponent.prototype.logout = function () {
         this.authService.logout();
-        this.setMessage();
     };
     LoginComponent = __decorate([
         core_1.Component({

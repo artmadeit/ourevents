@@ -1,38 +1,33 @@
-import { Component }   from '@angular/core';
-import { Router }      from '@angular/router';
+import { Component } from '@angular/core';
 import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
+import { User } from './user';
 
 @Component({
   moduleId: module.id,
   templateUrl: 'login.component.html'
 })
 export class LoginComponent {
-  message: string;
-  
-  constructor(public authService: AuthService, public router: Router) {
-    this.setMessage();
-  }
-  
-  setMessage() {
-    this.message = 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
+  user: User;
+
+  constructor(private authService: AuthService, private router: Router) {
+    this.user = {
+      email: '',
+      password: ''
+    };
   }
 
   login() {
-    this.message = 'Trying to log in ...';
-    this.authService.login().subscribe(() => {
-      this.setMessage();
+    this.authService.login(this.user).subscribe(() => {
       if (this.authService.isLoggedIn) {
-        // Get the redirect URL from our auth service
-        // If no redirect has been set, use the default
-        let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/crisis-center/admin';
-        // Redirect the user
-        this.router.navigate([redirect]);
+        this.router.navigate(['/']);
+      } else {
+        alert("intentalo otra vez");
       }
     });
   }
 
   logout() {
     this.authService.logout();
-    this.setMessage();
   }
 }

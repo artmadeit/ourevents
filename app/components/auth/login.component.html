@@ -3,10 +3,12 @@
     Inicia sesión en OurEvents
   </md-toolbar>
   <md-card-content>
-    <form (ngSubmit)="save()">
-      <md-input placeholder="Nombre de usuario" maxlength="100" name="username" class="full-width">
+    <form (ngSubmit)="login()">
+      <md-input maxlength="100" name="email" class="full-width"
+          placeholder="Correo electrónico" [(ngModel)]="user.email">
       </md-input>
-      <md-input placeholder="Contraseña" maxlength="100" name="password" class="full-width">
+      <md-input maxlength="100" name="password" class="full-width"
+          placeholder="Contraseña" [(ngModel)]="user.password">
       </md-input>
       <button md-raised-button>Enviar</button>
     </form>

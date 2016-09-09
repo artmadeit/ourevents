@@ -15,15 +15,35 @@ require('rxjs/add/operator/do');
 require('rxjs/add/operator/delay');
 var AuthService = (function () {
     function AuthService() {
-        this.isLoggedIn = false;
+        this._user = null;
     }
-    AuthService.prototype.login = function () {
-        var _this = this;
-        return Observable_1.Observable.of(true).delay(1000).do(function (val) { return _this.isLoggedIn = true; });
+    AuthService.prototype.login = function (user) {
+        return Observable_1.Observable.of(this.fakeLogin(user)).delay(1000);
+    };
+    AuthService.prototype.fakeLogin = function (user) {
+        var result = user && user.password === "root";
+        if (result) {
+            this._user = user;
+        }
+        return result;
     };
     AuthService.prototype.logout = function () {
-        this.isLoggedIn = false;
+        this._user = null;
     };
+    Object.defineProperty(AuthService.prototype, "isLoggedIn", {
+        get: function () {
+            return !!this._user;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AuthService.prototype, "user", {
+        get: function () {
+            return this._user;
+        },
+        enumerable: true,
+        configurable: true
+    });
     AuthService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

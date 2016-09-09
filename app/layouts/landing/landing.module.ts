@@ -9,6 +9,7 @@ import { MdIconModule } from '@angular2-material/icon';
 import { MdToolbarModule} from '@angular2-material/toolbar';
 import { MdListModule} from '@angular2-material/list';
 import { MdInputModule} from '@angular2-material/input';
+import { MdMenuModule} from '@angular2-material/menu';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { LandingComponent }   from './landing.component';
@@ -34,8 +35,9 @@ import { config } from '../../config';
         MdToolbarModule,
         MdListModule,
         MdInputModule,
+        MdMenuModule.forRoot(),
         AgmCoreModule.forRoot({
-            apiKey: config.GOOGLE_MAP
+            apiKey: config.googleMapAPIKey
         }),
         landingRouting
     ],

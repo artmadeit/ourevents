@@ -82,6 +82,10 @@
       '@angular2-material/list': {
         format: 'cjs',
         main: 'list.umd.js'
+      },
+      '@angular2-material/menu': {
+        format: 'cjs',
+        main: 'menu.umd.js'
       }
       
     }

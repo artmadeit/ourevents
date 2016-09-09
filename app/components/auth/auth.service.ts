@@ -4,19 +4,33 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/delay';
+import { User } from './user';
 
 @Injectable()
 export class AuthService {
-  isLoggedIn: boolean = false;
+  private _user: User = null;
 
-  // store the URL so we can redirect after logging in
-  redirectUrl: string;
+  login(user: User): Observable<boolean> {
+    return Observable.of(this.fakeLogin(user)).delay(1000);
+  }
 
-  login() {
-    return Observable.of(true).delay(1000).do(val => this.isLoggedIn = true);
+  private fakeLogin(user: User): boolean {
+    let result = user && user.password === "root";
+    if( result){
+      this._user = user;
+    }
+    return result;
   }
 
   logout() {
-    this.isLoggedIn = false;
+    this._user = null;
+  }
+
+  get isLoggedIn(): boolean{
+    return !!this._user;
+  }
+
+  get user(){
+    return this._user;
   }
 }
