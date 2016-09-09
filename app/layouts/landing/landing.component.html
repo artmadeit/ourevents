@@ -1,12 +1,15 @@
 <nav>
     <md-toolbar>
-        <span>OurEvents</span>
+        <span class="brand"><a routerLink="/">OurEvents</a></span>
 
         <span class="fill-remaining"></span>
-        <md-icon>menu</md-icon>
+        <ul class="navbar">
+            <li><a routerLink="/login">Inicia sesión</a></li>
+            <li><a href="/registrate">Registrate</a></li>
+        </ul>
     </md-toolbar>
 </nav>
-    <router-outlet></router-outlet>
+<router-outlet></router-outlet>
 
 <footer>
     Mi footer

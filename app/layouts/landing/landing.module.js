@@ -20,11 +20,14 @@ var list_1 = require('@angular2-material/list');
 var input_1 = require('@angular2-material/input');
 var core_2 = require('angular2-google-maps/core');
 var landing_component_1 = require('./landing.component');
+var login_component_1 = require('../../components/auth/login.component');
 var welcome_component_1 = require('../../components/welcome/welcome.component');
 var event_list_component_1 = require('../../components/event/event-list.component');
 var event_create_component_1 = require('../../components/event/event-create.component');
+var auth_service_1 = require('../../components/auth/auth.service');
 var event_service_1 = require('../../components/event/event.service');
 var landing_routing_1 = require('./landing.routing');
+var config_1 = require('../../config');
 var LandingModule = (function () {
     function LandingModule() {
     }
@@ -41,18 +44,20 @@ var LandingModule = (function () {
                 list_1.MdListModule,
                 input_1.MdInputModule,
                 core_2.AgmCoreModule.forRoot({
-                    apiKey: 'AIzaSyBpgAKFAdX_Lwpshvg_KhbIDNVJb1xivHo'
+                    apiKey: config_1.config.GOOGLE_MAP
                 }),
                 landing_routing_1.landingRouting
             ],
             exports: [],
             declarations: [
                 landing_component_1.LandingComponent,
+                login_component_1.LoginComponent,
                 welcome_component_1.WelcomeComponent,
                 event_list_component_1.EventListComponent,
                 event_create_component_1.EventCreateComponent
             ],
             providers: [
+                auth_service_1.AuthService,
                 event_service_1.EventService
             ],
         }), 

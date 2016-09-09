@@ -5,6 +5,7 @@ import { LandingComponent } from './landing.component';
 import { WelcomeComponent } from '../../components/welcome/welcome.component';
 import { EventListComponent } from '../../components/event/event-list.component';
 import { EventCreateComponent } from '../../components/event/event-create.component';
+import { LoginComponent } from '../../components/auth/login.component';
 
 const landingRoutes: Routes = [
   {
@@ -12,6 +13,7 @@ const landingRoutes: Routes = [
     component: LandingComponent,
     children: [
       { path: '', component: WelcomeComponent },
+      { path: 'login', component: LoginComponent },
       { path: 'eventos', component: EventListComponent },
       { path: 'eventos/crear', component: EventCreateComponent }
     ]
