@@ -1,7 +1,27 @@
-<h1>Crear evento</h1>
 <div>
-  <form>
-    <md-input placeholder="Company (disabled)" value="Google">
-    </md-input>
-  </form>
+  <md-card>
+    <md-toolbar color="primary">
+      Crear evento
+    </md-toolbar>
+    <md-card-content>
+      <form (ngSubmit)="save()">
+        <md-input placeholder="Nombre (máx 100)" maxlength="100" #nameHint [(ngModel)]="event.name" name="name">
+          <md-hint align="end">{{nameHint.characterCount}} / 100</md-hint>
+        </md-input>
+        <md-input placeholder="Descripcion (máx 500)" maxlength="500" #descriptionHint [(ngModel)]="event.description" name="description">
+          <md-hint align="end">{{descriptionHint.characterCount}} / 500</md-hint>
+        </md-input>
+        <md-input placeholder="Descripción del lugar" maxlength="100" #locationHint [(ngModel)]="event.location.name" name="location">
+          <md-hint align="end">{{locationHint.characterCount}} / 100</md-hint>
+        </md-input>
+        <button md-raised-button>Agregar</button>
+      </form>
+    </md-card-content>
+  </md-card>
+
+
+  <sebm-google-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" (mapClick)="mapClicked($event)">
+    <sebm-google-map-marker [latitude]="latitude" [longitude]="longitude">
+    </sebm-google-map-marker>
+  </sebm-google-map>
 </div>

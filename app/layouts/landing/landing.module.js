@@ -10,11 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var button_1 = require('@angular2-material/button');
+var card_1 = require('@angular2-material/card');
+var checkbox_1 = require('@angular2-material/checkbox');
 var icon_1 = require('@angular2-material/icon');
 var toolbar_1 = require('@angular2-material/toolbar');
 var list_1 = require('@angular2-material/list');
 var input_1 = require('@angular2-material/input');
+var core_2 = require('angular2-google-maps/core');
 var landing_component_1 = require('./landing.component');
 var welcome_component_1 = require('../../components/welcome/welcome.component');
 var event_list_component_1 = require('../../components/event/event-list.component');
@@ -28,11 +32,17 @@ var LandingModule = (function () {
         core_1.NgModule({
             imports: [
                 common_1.CommonModule,
+                forms_1.FormsModule,
                 button_1.MdButtonModule,
+                card_1.MdCardModule,
+                checkbox_1.MdCheckboxModule,
                 icon_1.MdIconModule,
                 toolbar_1.MdToolbarModule,
                 list_1.MdListModule,
                 input_1.MdInputModule,
+                core_2.AgmCoreModule.forRoot({
+                    apiKey: 'AIzaSyBpgAKFAdX_Lwpshvg_KhbIDNVJb1xivHo'
+                }),
                 landing_routing_1.landingRouting
             ],
             exports: [],

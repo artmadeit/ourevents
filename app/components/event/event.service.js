@@ -14,12 +14,58 @@ require('rxjs/add/operator/toPromise');
 var EventService = (function () {
     function EventService(http) {
         this.http = http;
+        this.EVENTS = [
+            {
+                name: 'Un evento',
+                location: {
+                    name: 'San Borja'
+                }
+            },
+            {
+                name: 'Una conferencia',
+                description: 'Una descripcion conferencia',
+                location: {
+                    name: 'Ate'
+                }
+            }
+        ];
         this.eventsURL = 'http://localhost:8000/api/event';
     }
     EventService.prototype.list = function () {
-        return this.http.get(this.eventsURL)
+        return Promise.resolve(this.EVENTS);
+        // return this.http.get(this.eventsURL)
+        //     .toPromise()
+        //     .then(response => response.json().data as Event[])
+        //     .catch(this.handleError);
+    };
+    EventService.prototype.save = function (event) {
+        this.EVENTS.push(event);
+        return Promise.resolve(event);
+        //   if (event.id) {
+        //     return this.put(event);
+        //   }
+        //   return this.post(event);
+    };
+    // Add new Event
+    EventService.prototype.post = function (event) {
+        var headers = new http_1.Headers({
+            'Content-Type': 'application/json'
+        });
+        return this.http
+            .post(this.eventsURL, JSON.stringify(event), { headers: headers })
             .toPromise()
-            .then(function (response) { return response.json().data; })
+            .then(function (res) { return res.json().data; })
+            .catch(this.handleError);
+    };
+    // Update existing Event
+    EventService.prototype.put = function (event) {
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        var url = this.eventsURL + "/" + event.id;
+        return this.http
+            .put(url, JSON.stringify(event), { headers: headers })
+            .toPromise()
+            .then(function () { return event; })
             .catch(this.handleError);
     };
     EventService.prototype.handleError = function (error) {
