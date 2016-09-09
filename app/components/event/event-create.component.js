@@ -71,7 +71,7 @@ var EventCreateComponent = (function () {
             moduleId: module.id,
             selector: 'event-create',
             templateUrl: 'event-create.component.html',
-            styles: ["\n        .sebm-google-map-container {\n            height: 300px;\n        }\n\n        .full-width {\n            width: 100%;\n        }\n\n        //not used\n        md-icon {\n            font-size: 100%;\n            height: inherit;\n            vertical-align: top;\n            width: inherit;\n        }\n\n        md-card {\n            margin: 16px;\n            padding: 0;\n        }\n\n        md-card md-card-content {\n            padding: 16px;\n        }\n    "]
+            styles: ["\n        .sebm-google-map-container {\n            height: 300px;\n        }\n    "]
         }), 
         __metadata('design:paramtypes', [event_service_1.EventService, router_1.Router])
     ], EventCreateComponent);

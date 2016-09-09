@@ -40,7 +40,8 @@ var LoginComponent = (function () {
     };
     LoginComponent = __decorate([
         core_1.Component({
-            template: "\n    <h2>LOGIN</h2>\n    <p>{{message}}</p>\n    <p>\n      <button (click)=\"login()\"  *ngIf=\"!authService.isLoggedIn\">Login</button>\n      <button (click)=\"logout()\" *ngIf=\"authService.isLoggedIn\">Logout</button>\n    </p>"
+            moduleId: module.id,
+            templateUrl: 'login.component.html'
         }), 
         __metadata('design:paramtypes', [auth_service_1.AuthService, router_1.Router])
     ], LoginComponent);

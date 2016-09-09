@@ -16,27 +16,6 @@ let max = 5;
         .sebm-google-map-container {
             height: 300px;
         }
-
-        .full-width {
-            width: 100%;
-        }
-
-        //not used
-        md-icon {
-            font-size: 100%;
-            height: inherit;
-            vertical-align: top;
-            width: inherit;
-        }
-
-        md-card {
-            margin: 16px;
-            padding: 0;
-        }
-
-        md-card md-card-content {
-            padding: 16px;
-        }
     `]
 })
 export class EventCreateComponent implements OnInit {

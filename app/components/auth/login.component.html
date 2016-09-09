@@ -1,0 +1,14 @@
+<md-card>
+  <md-toolbar color="primary">
+    Inicia sesión en OurEvents
+  </md-toolbar>
+  <md-card-content>
+    <form (ngSubmit)="save()">
+      <md-input placeholder="Nombre de usuario" maxlength="100" name="username" class="full-width">
+      </md-input>
+      <md-input placeholder="Contraseña" maxlength="100" name="password" class="full-width">
+      </md-input>
+      <button md-raised-button>Enviar</button>
+    </form>
+  </md-card-content>
+</md-card>
