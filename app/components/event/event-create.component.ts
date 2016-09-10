@@ -6,8 +6,6 @@ import { Event, Location } from './event';
 
 import { MouseEvent } from 'angular2-google-maps/core';
 
-let max = 5;
-
 @Component({
     moduleId: module.id,
     selector: 'event-create',
@@ -39,17 +37,17 @@ export class EventCreateComponent implements OnInit {
         this.eventService
             .save(this.event)
             .then(event => {
-                alert("Evento creado");
+                alert('Evento creado');
                 this.router.navigate(['/eventos']);
             });
     }
 
     clearForm() {
         this.event = {
-            name: "",
-            description: "",
+            name: '',
+            description: '',
             location: {
-                name: ""
+                name: ''
             }
         }
     }

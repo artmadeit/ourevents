@@ -21,11 +21,13 @@ var input_1 = require('@angular2-material/input');
 var menu_1 = require('@angular2-material/menu');
 var core_2 = require('angular2-google-maps/core');
 var landing_component_1 = require('./landing.component');
-var login_component_1 = require('../../components/auth/login.component');
 var welcome_component_1 = require('../../components/welcome/welcome.component');
 var event_list_component_1 = require('../../components/event/event-list.component');
 var event_create_component_1 = require('../../components/event/event-create.component');
+var login_component_1 = require('../../components/auth/login.component');
+var register_component_1 = require('../../components/auth/register/register.component');
 var auth_service_1 = require('../../components/auth/auth.service');
+var register_service_1 = require('../../components/auth/register/register.service');
 var event_service_1 = require('../../components/event/event.service');
 var landing_routing_1 = require('./landing.routing');
 var config_1 = require('../../config');
@@ -54,12 +56,14 @@ var LandingModule = (function () {
             declarations: [
                 landing_component_1.LandingComponent,
                 login_component_1.LoginComponent,
+                register_component_1.RegisterComponent,
                 welcome_component_1.WelcomeComponent,
                 event_list_component_1.EventListComponent,
                 event_create_component_1.EventCreateComponent
             ],
             providers: [
                 auth_service_1.AuthService,
+                register_service_1.RegisterUserService,
                 event_service_1.EventService
             ],
         }), 

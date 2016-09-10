@@ -1,0 +1,19 @@
+<md-card>
+    <md-toolbar color="primary">
+        Registrarse
+    </md-toolbar>
+    <md-card-content>
+        <form (ngSubmit)="register()">
+            <md-input maxlength="100" name="name" class="full-width" placeholder="Nombre" [(ngModel)]="user.name">
+            </md-input>
+            <md-input maxlength="100" name="email" class="full-width" placeholder="Correo electrónico" [(ngModel)]="user.email">
+            </md-input>
+            <md-input maxlength="100" name="password" type="password" class="full-width" placeholder="Contraseña" [(ngModel)]="user.password">
+            </md-input>
+
+            <button md-raised-button>Enviar</button>
+        </form>
+        <p>Al registrarme, acepto los términos de servicio, la política de privacidad de OurEvents
+            y doy mi consentimiento para que OurEvents me envíe comunicaciones de marketing.</p>
+    </md-card-content>
+</md-card>

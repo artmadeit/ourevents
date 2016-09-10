@@ -6,7 +6,7 @@
         
         <ul *ngIf="!isLoggedIn" class="navbar">
             <li><a routerLink="/login">Inicia sesión</a></li>
-            <li><a href="/registrate">Registrate</a></li>
+            <li><a routerLink="/registrate">Registrate</a></li>
         </ul>
         <div *ngIf="isLoggedIn">
             <span *ngIf="isLoggedIn"><a>{{user.email}}</a></span>

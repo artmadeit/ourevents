@@ -20,10 +20,9 @@ export class AuthService {
       return x.email === user.email && x.password === user.password;
     });
 
-    if(!!result){
+    if (!!result) {
       this._user = user;
     }
-    
     return !!result;
   }
 
