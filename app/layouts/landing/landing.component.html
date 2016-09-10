@@ -3,6 +3,7 @@
         <span class="brand"><a routerLink="/">OurEvents</a></span>
 
         <span class="fill-remaining"></span>
+        
         <ul *ngIf="!isLoggedIn" class="navbar">
             <li><a routerLink="/login">Inicia sesión</a></li>
             <li><a href="/registrate">Registrate</a></li>
@@ -14,10 +15,9 @@
             </button>
 
             <md-menu #menu="mdMenu">
-                <button md-menu-item> Refresh </button>
-                <button md-menu-item> Settings </button>
-                <button md-menu-item> Help </button>
-                <button md-menu-item disabled> Sign Out </button>
+                <button md-menu-item> Configuración </button>
+                <button md-menu-item> Ayuda </button>
+                <button md-menu-item (click)="logout()"> Cerrar sesión</button>
             </md-menu>
         </div>
 

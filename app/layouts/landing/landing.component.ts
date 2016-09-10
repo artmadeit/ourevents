@@ -22,4 +22,8 @@ export class LandingComponent implements OnInit {
     get user(){
         return this.authService.user;
     }
+
+    logout(){
+        this.authService.logout();
+    }
 }

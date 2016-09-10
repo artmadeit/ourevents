@@ -30,6 +30,9 @@ var LandingComponent = (function () {
         enumerable: true,
         configurable: true
     });
+    LandingComponent.prototype.logout = function () {
+        this.authService.logout();
+    };
     LandingComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

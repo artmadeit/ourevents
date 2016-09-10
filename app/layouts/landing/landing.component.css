@@ -1,8 +1,4 @@
 /*Navbar*/
-.fill-remaining {
-    flex: 1 1 auto;
-}
-
 .navbar, .inline {
     padding-left: 0;
     margin-left: -5px;
