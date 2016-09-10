@@ -16,6 +16,7 @@ var LoginComponent = (function () {
         this.authService = authService;
         this.router = router;
         this.user = {
+            name: '',
             email: '',
             password: ''
         };
@@ -27,7 +28,7 @@ var LoginComponent = (function () {
                 _this.router.navigate(['/']);
             }
             else {
-                alert("intentalo otra vez");
+                _this.errorMessage = "Lo sentimos, OurEvents no \n                renoce a un usuario para esas credenciales.";
             }
         });
     };

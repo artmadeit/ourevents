@@ -5,6 +5,7 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/delay';
 import { User } from './user';
+import { MOCK_USERS } from './users.mock';
 
 @Injectable()
 export class AuthService {
@@ -15,11 +16,15 @@ export class AuthService {
   }
 
   private fakeLogin(user: User): boolean {
-    let result = user && user.password === "root";
-    if( result){
+    let result = MOCK_USERS.find((x: User) => {
+      return x.email === user.email && x.password === user.password;
+    });
+
+    if(!!result){
       this._user = user;
     }
-    return result;
+    
+    return !!result;
   }
 
   logout() {
@@ -34,3 +39,4 @@ export class AuthService {
     return this._user;
   }
 }
+

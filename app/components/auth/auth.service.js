@@ -13,6 +13,7 @@ var Observable_1 = require('rxjs/Observable');
 require('rxjs/add/observable/of');
 require('rxjs/add/operator/do');
 require('rxjs/add/operator/delay');
+var users_mock_1 = require('./users.mock');
 var AuthService = (function () {
     function AuthService() {
         this._user = null;
@@ -21,11 +22,13 @@ var AuthService = (function () {
         return Observable_1.Observable.of(this.fakeLogin(user)).delay(1000);
     };
     AuthService.prototype.fakeLogin = function (user) {
-        var result = user && user.password === "root";
-        if (result) {
+        var result = users_mock_1.MOCK_USERS.find(function (x) {
+            return x.email === user.email && x.password === user.password;
+        });
+        if (!!result) {
             this._user = user;
         }
-        return result;
+        return !!result;
     };
     AuthService.prototype.logout = function () {
         this._user = null;

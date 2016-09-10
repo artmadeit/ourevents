@@ -9,9 +9,11 @@ import { User } from './user';
 })
 export class LoginComponent {
   user: User;
+  errorMessage: string;
 
   constructor(private authService: AuthService, private router: Router) {
     this.user = {
+      name: '',
       email: '',
       password: ''
     };
@@ -22,7 +24,8 @@ export class LoginComponent {
       if (this.authService.isLoggedIn) {
         this.router.navigate(['/']);
       } else {
-        alert("intentalo otra vez");
+        this.errorMessage = `Lo sentimos, OurEvents no 
+                renoce a un usuario para esas credenciales.`;
       }
     });
   }

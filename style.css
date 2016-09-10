@@ -50,9 +50,15 @@ h1, h2, h3 {
     background-position: center 0px;
 }
 
+/*custom helpers*/
 .full-width {
     width: 100%;
 }
+
+.fill-remaining {
+    flex: 1 1 auto;
+}
+
 
 /*material design custom*/
 md-icon {
