@@ -10,12 +10,12 @@ body {
 
 h1 {
     font-size: 36px;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 h1, h2, h3 {
     margin-top: 20px;
     margin-bottom: 10px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 
@@ -51,6 +51,10 @@ h1, h2, h3 {
 }
 
 /*custom helpers*/
+.text-center {
+    text-align: center;
+}
+
 .full-width {
     width: 100%;
 }
@@ -59,6 +63,15 @@ h1, h2, h3 {
     flex: 1 1 auto;
 }
 
+.container{
+    display: flex;
+    height: 500px;
+}
+
+.flex-1{
+    flex: 1;
+    margin: auto;
+}
 
 /*material design custom*/
 md-icon {
@@ -68,6 +81,11 @@ md-icon {
     width: inherit;
 }
 
+[md-raised-button], [md-fab], [md-mini-fab], [md-button], [md-icon-button] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 md-card {
     margin: 16px;
     padding: 0px !important;
@@ -75,4 +93,9 @@ md-card {
 
 md-card md-card-content {
     padding: 16px;
+}
+
+md-input {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }

@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var event_service_1 = require('./event.service');
-var max = 5;
 var EventCreateComponent = (function () {
     function EventCreateComponent(eventService, router) {
         this.eventService = eventService;
@@ -31,16 +30,16 @@ var EventCreateComponent = (function () {
         this.eventService
             .save(this.event)
             .then(function (event) {
-            alert("Evento creado");
+            alert('Evento creado');
             _this.router.navigate(['/eventos']);
         });
     };
     EventCreateComponent.prototype.clearForm = function () {
         this.event = {
-            name: "",
-            description: "",
+            name: '',
+            description: '',
             location: {
-                name: ""
+                name: ''
             }
         };
     };

@@ -19,10 +19,6 @@
     border-width: 1px;
 }
 
-.text-center {
-    text-align: center;
-}
-
 .jumbotron.absolute-background .content {
     top: 30%;
 }
