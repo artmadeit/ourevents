@@ -1,9 +1,13 @@
 <nav>
     <md-toolbar>
-        <span class="brand"><a routerLink="/">OurEvents</a></span>
+        <span class="brand">
+            <a routerLink="/">
+                <img src="img/logo.png" height="120px"/>
+            </a>
+        </span>
 
         <span class="fill-remaining"></span>
-        
+
         <ul *ngIf="!isLoggedIn" class="navbar">
             <li><a routerLink="/login">Inicia sesión</a></li>
             <li><a routerLink="/registrate">Registrate</a></li>

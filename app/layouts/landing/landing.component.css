@@ -1,4 +1,8 @@
 /*Navbar*/
+.brand {
+    margin-top: 14px;
+}
+
 .navbar, .inline {
     padding-left: 0;
     margin-left: -5px;
@@ -10,8 +14,8 @@
     padding-left: 5px;
 }
 
-md-toolbar .brand{
-   font-size: 25px;
+md-toolbar {
+    background-color: white;
 }
 
 a {
