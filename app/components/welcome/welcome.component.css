@@ -1,7 +1,6 @@
 /*slide*/
-.jumbotron {
+#welcome-slide{
     background-image: url('img/background.jpg');
-    height: 400px;
 }
 
 .jumbotron h1{
@@ -17,8 +16,4 @@
     font-size: 1.5em;
     border-style: solid;
     border-width: 1px;
-}
-
-.jumbotron.absolute-background .content {
-    top: 30%;
 }

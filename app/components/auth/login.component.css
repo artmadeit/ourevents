@@ -4,5 +4,8 @@
 
 #login {
     background-image: url('img/knowledge.jpg');
-    height: 500px
+}
+
+.jumbotron.absolute-background .content {
+    top: 20%;
 }

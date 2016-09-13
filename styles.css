@@ -50,6 +50,14 @@ h1, h2, h3 {
     background-position: center 0px;
 }
 
+.jumbotron {
+    height: 500px;
+}
+
+.jumbotron.absolute-background .content {
+    top: 30%;
+}
+
 /*custom helpers*/
 .text-center {
     text-align: center;
@@ -57,10 +65,6 @@ h1, h2, h3 {
 
 .full-width {
     width: 100%;
-}
-
-.full-height {
-    height: 100%;
 }
 
 .fill-remaining {
