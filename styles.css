@@ -59,17 +59,15 @@ h1, h2, h3 {
     width: 100%;
 }
 
+.full-height {
+    height: 100%;
+}
+
 .fill-remaining {
     flex: 1 1 auto;
 }
 
-.container{
-    display: flex;
-    height: 500px;
-}
-
-.flex-1{
-    flex: 1;
+.block-center {
     margin: auto;
 }
 
