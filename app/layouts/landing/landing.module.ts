@@ -23,6 +23,8 @@ import { RegisterComponent } from '../../components/auth/register/register.compo
 
 import { AuthService } from '../../components/auth/auth.service';
 import { RegisterUserService } from '../../components/auth/register/register.service';
+import { UserProviderService } from '../../components/auth/user-provider.service';
+
 import { EventService } from '../../components/event/event.service';
 
 import { landingRouting } from './landing.routing';
@@ -56,6 +58,7 @@ import { config } from '../../config';
     ],
     providers: [
         AuthService,
+        UserProviderService,
         RegisterUserService,
         EventService
     ],

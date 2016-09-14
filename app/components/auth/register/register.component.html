@@ -10,8 +10,7 @@
             </md-input>
             <md-input maxlength="100" name="password" type="password" class="full-width" placeholder="Contraseña" [(ngModel)]="user.password">
             </md-input>
-
-            <button md-raised-button>Enviar</button>
+            <button md-raised-button [disabled]="!isValid" >Enviar</button>
         </form>
         <p>Al registrarme, acepto los términos de servicio, la política de privacidad de OurEvents
             y doy mi consentimiento para que OurEvents me envíe comunicaciones de marketing.</p>

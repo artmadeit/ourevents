@@ -13,25 +13,19 @@ export class LoginComponent {
   errorMessage: string;
 
   constructor(private authService: AuthService, private router: Router) {
-    this.user = {
-      name: '',
-      email: '',
-      password: ''
-    };
+    this.user = new User('', '', '');
   }
 
   login() {
-    this.authService.login(this.user).subscribe(() => {
-      if (this.authService.isLoggedIn) {
-        this.router.navigate(['/']);
-      } else {
-        this.errorMessage = `Lo sentimos, OurEvents no 
+    if (this.authService.login(this.user)) {
+      this.router.navigate(['/']);
+    } else {
+      this.errorMessage = `Lo sentimos, OurEvents no 
                 renoce a un usuario para esas credenciales.`;
-      }
-    });
+    }
   }
 
   logout() {
     this.authService.logout();
   }
-}
+};

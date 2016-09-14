@@ -5,36 +5,39 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/delay';
 import { User } from './user';
-import { MOCK_USERS } from './users.mock';
+import { UserProviderService } from './user-provider.service';
 
 @Injectable()
 export class AuthService {
   private _user: User = null;
 
-  login(user: User): Observable<boolean> {
-    return Observable.of(this.fakeLogin(user)).delay(1000);
+  constructor(private userProvider: UserProviderService) {
+
+  }
+
+  login(user: User): boolean {
+    return this.fakeLogin(user);
   }
 
   private fakeLogin(user: User): boolean {
-    let result = MOCK_USERS.find((x: User) => {
-      return x.email === user.email && x.password === user.password;
-    });
-
-    if (!!result) {
-      this._user = user;
+    const fetchedUser = this.userProvider.retrieveByCredentials(user);
+    if (!!fetchedUser) {
+      this._user = fetchedUser;
+      return true;
+    } else {
+      return false;
     }
-    return !!result;
   }
 
   logout() {
     this._user = null;
   }
 
-  get isLoggedIn(): boolean{
+  get isLoggedIn(): boolean {
     return !!this._user;
   }
 
-  get user(){
+  get user() {
     return this._user;
   }
 }

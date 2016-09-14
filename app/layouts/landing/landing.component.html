@@ -13,7 +13,7 @@
             <li><a routerLink="/registrate">Registrate</a></li>
         </ul>
         <div *ngIf="isLoggedIn">
-            <span *ngIf="isLoggedIn"><a>{{user.email}}</a></span>
+            <span *ngIf="isLoggedIn"><a>{{user.name}}</a></span>
             <button md-icon-button [md-menu-trigger-for]="menu">
                 <md-icon>more_vert</md-icon>
             </button>
