@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { RegisterUserService } from './register.service';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
     moduleId: module.id,

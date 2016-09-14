@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { AuthService } from './auth.service';
+import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
-import { User } from './user';
+import { User } from '../user';
 
 @Component({
   moduleId: module.id,
@@ -17,7 +17,7 @@ export class LoginComponent {
   }
 
   login() {
-    if (this.authService.login(this.user)) {
+    if (this.authService.auth(this.user)) {
       this.router.navigate(['/']);
     } else {
       this.errorMessage = `Lo sentimos, OurEvents no 

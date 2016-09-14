@@ -12,18 +12,12 @@ import { MdInputModule} from '@angular2-material/input';
 import { MdMenuModule} from '@angular2-material/menu';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
+import { AuthModule } from '../../components/auth/auth.module';
+
 import { LandingComponent }   from './landing.component';
 import { WelcomeComponent } from '../../components/welcome/welcome.component';
 import { EventListComponent } from '../../components/event/event-list.component';
 import { EventCreateComponent } from '../../components/event/event-create.component';
-
-import { LoginComponent } from '../../components/auth/login.component';
-import { RegisterComponent } from '../../components/auth/register/register.component';
-
-
-import { AuthService } from '../../components/auth/auth.service';
-import { RegisterUserService } from '../../components/auth/register/register.service';
-import { UserProviderService } from '../../components/auth/user-provider.service';
 
 import { EventService } from '../../components/event/event.service';
 
@@ -45,21 +39,17 @@ import { config } from '../../config';
         AgmCoreModule.forRoot({
             apiKey: config.googleMapAPIKey
         }),
+        AuthModule,
         landingRouting
     ],
     exports: [],
     declarations: [
         LandingComponent,
-        LoginComponent,
-        RegisterComponent,
         WelcomeComponent,
         EventListComponent,
         EventCreateComponent
     ],
     providers: [
-        AuthService,
-        UserProviderService,
-        RegisterUserService,
         EventService
     ],
 })
