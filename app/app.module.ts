@@ -1,13 +1,12 @@
-import { NgModule }      from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent }  from './app.component';
-import { routing,
-         appRoutingProviders } from './app.routing';
+import { AppComponent } from './app.component';
+import { routing, appRoutingProviders } from './app.routing';
 import { LandingModule } from './layouts/landing/landing.module';
 
 @NgModule({
-  imports:      [ 
+  imports: [
     BrowserModule,
     routing,
     LandingModule
@@ -18,6 +17,6 @@ import { LandingModule } from './layouts/landing/landing.module';
   providers: [
     appRoutingProviders
   ],
-  bootstrap:    [ AppComponent ],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
