@@ -9,8 +9,12 @@ export class UserProviderService {
 
   retrieveByCredentials(credentials: User) {
     return MOCK_USERS.find(
-      (x: User) => x.equals(credentials)
+      (x: User) => x.email === credentials.email
     );
+  }
+
+  existUser(user: User) {
+    return !!this.retrieveByCredentials(user);
   }
 
   save(user: User) {

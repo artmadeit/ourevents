@@ -3,31 +3,35 @@
   <div class="content text-center">
     <div class="container">
       <div class="row">
-      <div class="col-lg-6 block-center">
-        <div class="phrase">
-          <h1>Conectate a una red de miles de personas y eventos</h1>
-          <h2>A solo un paso</h2>
+        <div class="col-lg-6 block-center">
+          <div class="phrase">
+            <h1>Conectate a una red de miles de personas y eventos</h1>
+            <h2>A solo un paso</h2>
+          </div>
+        </div>
+        <div class="col-lg-6 block-center">
+          <md-card>
+            <md-toolbar color="primary">
+              Inicia sesión
+            </md-toolbar>
+            <md-card-content>
+              <form (ngSubmit)="login()">
+                <md-input type="email" name="email" class="full-width" 
+                      placeholder="Correo electrónico" [(ngModel)]="user.email"
+                      required maxlength="100" >
+                </md-input>
+                <md-input type="password" name="password" class="full-width" 
+                      placeholder="Contraseña" [(ngModel)]="user.password"
+                      minlength="6" required maxlength="100" >
+                </md-input>
+                <div class="full-width" style="color:red">{{errorMessage}}</div>
+
+                <button md-raised-button>Enviar</button>
+              </form>
+            </md-card-content>
+          </md-card>
         </div>
       </div>
-      <div class="col-lg-6 block-center">
-        <md-card>
-          <md-toolbar color="primary">
-            Inicia sesión
-          </md-toolbar>
-          <md-card-content>
-            <form (ngSubmit)="login()">
-              <md-input maxlength="100" name="email" class="full-width" placeholder="Correo electrónico" [(ngModel)]="user.email">
-              </md-input>
-              <md-input type="password" maxlength="100" name="password" class="full-width" placeholder="Contraseña" [(ngModel)]="user.password">
-              </md-input>
-              <div class="full-width" style="color:red">{{errorMessage}}</div>
-
-              <button md-raised-button>Enviar</button>
-            </form>
-          </md-card-content>
-        </md-card>
-      </div>
-    </div>
     </div>
   </div>
 </div>

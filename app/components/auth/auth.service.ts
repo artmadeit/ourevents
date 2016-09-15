@@ -17,7 +17,7 @@ export class AuthService {
 
   private fakeLogin(user: User): boolean {
     const fetchedUser = this.userProvider.retrieveByCredentials(user);
-    if (!!fetchedUser) {
+    if (!!fetchedUser && fetchedUser.password === user.password) {
       this._user = fetchedUser;
       return true;
     } else {

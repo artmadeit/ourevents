@@ -12,7 +12,10 @@ export class RegisterUserService {
     }
 
     execute(user: User): void {
-        this.userProvider.save(user);
-        this.authService.auth(user);
+        if (!this.userProvider.existUser(user)) {
+            this.userProvider.save(user);
+            // TODO: change the use case steps
+            this.authService.auth(user);
+        }
     }
 }
