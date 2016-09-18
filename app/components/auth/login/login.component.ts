@@ -32,12 +32,12 @@ export class LoginComponent implements OnInit{
       {
         'email': ['', [
           Validators.required,
-          Validators.maxLength(100)
+          Validators.maxLength(50)
         ]],
         'password': ['', [
           Validators.required,
           Validators.minLength(6),
-          Validators.maxLength(100)
+          Validators.maxLength(50)
         ]]
       });
 
@@ -49,9 +49,9 @@ export class LoginComponent implements OnInit{
   }
 
   private seeForErrors() {
-    // this.validationMessagesService
-    //           .build(this.userForm)
-    //           .subscribe((errors: MessageBag) => this.errors = errors);
+    this.validationMessagesService
+              .build(this.userForm)
+              .subscribe((errors: MessageBag) => this.errors = errors);
   }
 
   login() {

@@ -16,12 +16,16 @@
             </md-toolbar>
             <md-card-content>
               <form [formGroup]="userForm" (ngSubmit)="login()">
-                <md-input type="email" formControlName="email" class="full-width" 
-                      placeholder="Correo electrónico" required>
+                <md-input type="email" formControlName="email" class="full-width" placeholder="Correo electrónico" required>
                 </md-input>
-                <md-input type="password" formControlName="password" class="full-width" 
-                      placeholder="Contraseña" required>
+                <div *ngIf="errors.email" class="alert alert-danger">
+                  {{ errors.email }}
+                </div>
+                <md-input type="password" formControlName="password" class="full-width" placeholder="Contraseña" required>
                 </md-input>
+                <div *ngIf="errors.password" class="alert alert-danger">
+                  {{ errors.password }}
+                </div>
                 <div class="full-width" style="color:red">{{errorMessage}}</div>
 
                 <button [disabled]="!userForm.valid" md-raised-button>Enviar</button>
