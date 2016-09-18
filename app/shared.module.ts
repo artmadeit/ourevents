@@ -3,7 +3,12 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+
+//TODO remove FormsModule..use ReactiveFormModule instead
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// FIX this in ng2-custom-validation..to use ng2-custom-validation/core 
+import { ValidationMessagesModule } from 'ng2-custom-validation/src/index';
 
 import { MdButtonModule } from '@angular2-material/button';
 import { MdCardModule } from '@angular2-material/card';
@@ -16,11 +21,13 @@ import { MdMenuModule } from '@angular2-material/menu';
 
 @NgModule({
     imports: [
-        MdMenuModule.forRoot()
+        MdMenuModule.forRoot(),
+        ValidationMessagesModule.forRoot()
     ],
     exports: [
         CommonModule,
         FormsModule,
+        ReactiveFormsModule,
         MdButtonModule,
         MdCardModule,
         MdCheckboxModule,

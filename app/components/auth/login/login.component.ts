@@ -1,23 +1,61 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
-import { User } from '../user';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+// FIX this in ng2-custom-validation..to use ng2-custom-validation/core 
+// TODO make typed message bag to message bag..
+import { ValidationMessagesService, MessageBag } from 'ng2-custom-validation/src/index';
 
 @Component({
   moduleId: module.id,
   templateUrl: 'login.component.html',
   styleUrls: ['login.component.css']
 })
-export class LoginComponent {
-  user: User;
+export class LoginComponent implements OnInit{
   errorMessage: string;
+  userForm: FormGroup;
+  errors: MessageBag;
 
-  constructor(private authService: AuthService, private router: Router) {
-    this.user = new User('', '', '');
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private validationMessagesService: ValidationMessagesService) {
+  }
+
+  ngOnInit(): void {
+      this.buildForm();
+  }
+
+  private buildForm() {
+    this.userForm = this.formBuilder.group(
+      {
+        'email': ['', [
+          Validators.required,
+          Validators.maxLength(100)
+        ]],
+        'password': ['', [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(100)
+        ]]
+      });
+
+    this.userForm.valueChanges
+      .subscribe(data => {
+        this.seeForErrors();
+      });
+    this.seeForErrors(); // (re)set validation messages now
+  }
+
+  private seeForErrors() {
+    // this.validationMessagesService
+    //           .build(this.userForm)
+    //           .subscribe((errors: MessageBag) => this.errors = errors);
   }
 
   login() {
-    if (this.authService.auth(this.user)) {
+    if (this.authService.auth(this.userForm.value)) {
       this.router.navigate(['/']);
     } else {
       this.errorMessage = `Lo sentimos, OurEvents no 

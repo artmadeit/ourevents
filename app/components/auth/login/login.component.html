@@ -15,18 +15,16 @@
               Inicia sesión
             </md-toolbar>
             <md-card-content>
-              <form (ngSubmit)="login()">
-                <md-input type="email" name="email" class="full-width" 
-                      placeholder="Correo electrónico" [(ngModel)]="user.email"
-                      required maxlength="100" >
+              <form [formGroup]="userForm" (ngSubmit)="login()">
+                <md-input type="email" formControlName="email" class="full-width" 
+                      placeholder="Correo electrónico" required>
                 </md-input>
-                <md-input type="password" name="password" class="full-width" 
-                      placeholder="Contraseña" [(ngModel)]="user.password"
-                      minlength="6" required maxlength="100" >
+                <md-input type="password" formControlName="password" class="full-width" 
+                      placeholder="Contraseña" required>
                 </md-input>
                 <div class="full-width" style="color:red">{{errorMessage}}</div>
 
-                <button md-raised-button>Enviar</button>
+                <button [disabled]="!userForm.valid" md-raised-button>Enviar</button>
               </form>
             </md-card-content>
           </md-card>
