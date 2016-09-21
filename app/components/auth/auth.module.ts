@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { AuthService } from './auth.service';
 import { RegisterUserService } from './register/register.service';
 import { UserProviderService } from './user-provider.service';
+import { AuthGuard } from './auth-guard.service';
 
 @NgModule({
     imports: [
@@ -20,6 +21,7 @@ import { UserProviderService } from './user-provider.service';
     ],
     providers: [
         AuthService,
+        AuthGuard,
         UserProviderService,
         RegisterUserService
     ],

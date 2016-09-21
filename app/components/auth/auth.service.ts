@@ -6,9 +6,19 @@ import { UserProviderService } from './user-provider.service';
 @Injectable()
 export class AuthService {
   private _user: User = null;
+  // store the URL so we can redirect after logging in
+  private _redirectURL: string;
 
   constructor(private userProvider: UserProviderService) {
 
+  }
+
+  set redirectURL(URL: string) {
+    this._redirectURL = URL;
+  }
+
+  get redirectURL() {
+    return this._redirectURL ? this._redirectURL : '/';
   }
 
   auth(user: User): boolean {

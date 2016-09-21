@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit{
 
   login() {
     if (this.authService.auth(this.userForm.value)) {
-      this.router.navigate(['/']);
+      this.router.navigate([this.authService.redirectURL]);
     } else {
       this.errorMessage = `Lo sentimos, OurEvents no 
                 renoce a un usuario para esas credenciales.`;

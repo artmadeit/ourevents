@@ -8,6 +8,7 @@ import { EventCreateComponent } from '../../components/event/event-create.compon
 import { EventDetailComponent } from '../../components/event/event-detail.component';
 
 import { authRoutes } from '../../components/auth/auth.routing';
+import { AuthGuard } from '../../components/auth/auth-guard.service';
 
 const landingRoutes: Routes = [
   {
@@ -16,7 +17,7 @@ const landingRoutes: Routes = [
     children: [
       { path: '', component: WelcomeComponent },
       { path: 'eventos', component: EventListComponent },
-      { path: 'eventos/crear', component: EventCreateComponent },
+      { path: 'eventos/crear', component: EventCreateComponent, canActivate: [AuthGuard] },
       { path: 'eventos/ver/:id', component: EventDetailComponent },
       ...authRoutes
     ]
