@@ -4,7 +4,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-//TODO remove FormsModule..use ReactiveFormModule instead
+// TODO remove FormsModule..use ReactiveFormModule instead
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // FIX this in ng2-custom-validation..to use ng2-custom-validation/core 
@@ -18,11 +18,13 @@ import { MdToolbarModule } from '@angular2-material/toolbar';
 import { MdListModule } from '@angular2-material/list';
 import { MdInputModule } from '@angular2-material/input';
 import { MdMenuModule } from '@angular2-material/menu';
+import { MdGridListModule } from '@angular2-material/grid-list';
 
 @NgModule({
     imports: [
         MdMenuModule.forRoot(),
-        ValidationMessagesModule.forRoot()
+        ValidationMessagesModule.forRoot(),
+        MdGridListModule.forRoot()
     ],
     exports: [
         CommonModule,
@@ -35,7 +37,8 @@ import { MdMenuModule } from '@angular2-material/menu';
         MdToolbarModule,
         MdListModule,
         MdInputModule,
-        MdMenuModule
+        MdMenuModule,
+        MdGridListModule
     ],
     declarations: [],
     providers: [],

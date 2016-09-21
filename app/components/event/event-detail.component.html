@@ -1,0 +1,19 @@
+<div *ngIf="event">
+    <div class="jumbotron absolute-background image-background">
+        <div class="background black-background"></div>
+        <div class="content text-center">
+            <div class="container">
+                <div class="col-lg-6">
+                    <div class="phrase">
+                        <h3>{{event.speaker.name}}:</h3>
+                        <h1>{{event.name}}</h1>
+                        <h2>Inicio: {{event.period.start | date }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+
+    </div>
+</div>

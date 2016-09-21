@@ -1,12 +1,21 @@
-<h1>Eventos</h1>
-<a routerLink="/eventos/crear" md-fab color="warn">
-    <md-icon>add</md-icon>
-</a>
-<div *ngIf="events">
-  <div *ngFor="let event of events"> 
-  <h3>
-    {{event.name}}
-  </h3>
-  <p>{{event.description}}</p>
-</div>
-</div>
+<section class="container">
+  <h1>Eventos</h1>
+  <div *ngIf="events">
+    <div class="row" *ngFor="let chunk of events.chunk(3)">
+      <md-card (click)="showDetail(event)" *ngFor="let event of chunk" class="col-lg-4">
+        <md-card-header>
+          <!--<img md-card-avatar src="https://static.thoughtworks.com/images/photo-card-grid/tech-radar-april16.jpg">
+          -->
+          <md-card-title>{{event.name}}</md-card-title>
+          <md-card-subtitle>por {{event.speaker.name}}</md-card-subtitle>
+        </md-card-header>
+        
+        <!--<img md-card-image height="200px" src="https://static.thoughtworks.com/images/photo-card-grid/tech-radar-april16.jpg">
+        -->
+        <md-card-content>
+          <p>{{event.description}}</p>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+</section>

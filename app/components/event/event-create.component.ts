@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { EventService } from './event.service';
-import { Event, Location } from './event';
+import { Event, Location, TimePeriod, Person } from './event';
 
 import { MouseEvent } from 'angular2-google-maps/core';
 
@@ -48,7 +48,9 @@ export class EventCreateComponent implements OnInit {
             description: '',
             location: {
                 name: ''
-            }
+            },
+            speaker: new Person('', ''),
+            period: new TimePeriod(new Date(), new Date())
         }
     }
 

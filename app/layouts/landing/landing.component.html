@@ -13,10 +13,15 @@
             <li><a routerLink="/registrate">Registrate</a></li>
         </ul>
         <div *ngIf="isLoggedIn">
-            <span *ngIf="isLoggedIn"><a>{{user.name}}</a></span>
-            <button md-icon-button [md-menu-trigger-for]="menu">
-                <md-icon>more_vert</md-icon>
-            </button>
+            <span>
+                <a routerLink="/eventos/crear" md-raised-button color="primary">Crear evento</a>
+            </span>
+            <span><a>{{user.name}}</a></span>
+            <span>
+                <button md-icon-button [md-menu-trigger-for]="menu">
+                    <md-icon>more_vert</md-icon>
+                </button>
+            </span>
 
             <md-menu #menu="mdMenu">
                 <button md-menu-item> Configuración </button>

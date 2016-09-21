@@ -7,8 +7,10 @@ import { AuthModule } from '../../components/auth/auth.module';
 
 import { LandingComponent } from './landing.component';
 import { WelcomeComponent } from '../../components/welcome/welcome.component';
+
 import { EventListComponent } from '../../components/event/event-list.component';
 import { EventCreateComponent } from '../../components/event/event-create.component';
+import { EventDetailComponent } from '../../components/event/event-detail.component';
 
 import { EventService } from '../../components/event/event.service';
 
@@ -29,7 +31,8 @@ import { landingRouting } from './landing.routing';
         LandingComponent,
         WelcomeComponent,
         EventListComponent,
-        EventCreateComponent
+        EventCreateComponent,
+        EventDetailComponent
     ],
     providers: [
         EventService

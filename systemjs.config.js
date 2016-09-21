@@ -69,6 +69,10 @@
         format: 'cjs',
         main: 'toolbar.umd.js'
       },
+      '@angular2-material/grid-list': {
+        format: 'cjs',
+        main: 'grid-list.umd.js'
+      },
       '@angular2-material/sidenav': {
         format: 'cjs',
         main: 'sidenav.umd.js'
