@@ -3,5 +3,8 @@
     "minlength": "El :attribute debe tener al menos :min carácteres.",
     "maxlength": "El :attribute no puede tener más de :max carácteres.",
     "customAttributes" : {
+        "name": "nombre",
+        "password": "contraseña",
+        "email": "correo electrónico"
     }
 }

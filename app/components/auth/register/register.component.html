@@ -15,20 +15,23 @@
                             Registrate
                         </md-toolbar>
                         <md-card-content>
-                            <form (ngSubmit)="register()">
-                                <md-input name="name" class="full-width" 
-                                    placeholder="Nombre" [(ngModel)]="user.name"
-                                    required maxlength="100">
+                            <form [formGroup]="userForm" (ngSubmit)="register()">
+                                <md-input formControlName="name" class="full-width" placeholder="Nombre" required>
                                 </md-input>
-                                <md-input name="email" type="email" class="full-width" 
-                                    placeholder="Correo electrónico" [(ngModel)]="user.email"
-                                    required maxlength="100">
+                                <div *ngIf="errors.name" class="alert alert-danger">
+                                    {{ errors.name }}
+                                </div>
+                                <md-input formControlName="email" type="email" class="full-width" placeholder="Correo electrónico" required>
                                 </md-input>
-                                <md-input name="password" type="password" class="full-width" 
-                                    placeholder="Contraseña" [(ngModel)]="user.password"
-                                    required minlength="6" maxlength="100">
+                                <div *ngIf="errors.email" class="alert alert-danger">
+                                    {{ errors.email }}
+                                </div>
+                                <md-input formControlName="password" type="password" class="full-width" placeholder="Contraseña" required>
                                 </md-input>
-                                <button md-raised-button [disabled]="!isValid">Enviar</button>
+                                <div *ngIf="errors.password" class="alert alert-danger">
+                                    {{ errors.password }}
+                                </div>
+                                <button md-raised-button [disabled]="!userForm.valid">Enviar</button>
                             </form>
                             <p>Al registrarme, acepto los términos de servicio, la política de privacidad de OurEvents y doy
                                 mi consentimiento para que OurEvents me envíe comunicaciones de marketing.</p>
