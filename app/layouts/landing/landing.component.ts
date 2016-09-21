@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MdIconRegistry } from '@angular2-material/icon';
 import { AuthService } from '../../components/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
     moduleId: module.id,
@@ -11,19 +12,21 @@ import { AuthService } from '../../components/auth/auth.service';
 })
 export class LandingComponent implements OnInit {
     constructor(mdIconRegistry: MdIconRegistry,
-        private authService: AuthService) {}
+        private authService: AuthService, private router: Router) { }
 
     ngOnInit() { }
 
-    get isLoggedIn(){
+    get isLoggedIn() {
         return this.authService.isLoggedIn;
     }
 
-    get user(){
+    get user() {
         return this.authService.user;
     }
 
-    logout(){
+    logout() {
         this.authService.logout();
+        // FIX should redirect to home in the top of the page, not in the middle
+        this.router.navigate(['/']);
     }
 }

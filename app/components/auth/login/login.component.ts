@@ -62,8 +62,4 @@ export class LoginComponent implements OnInit{
                 renoce a un usuario para esas credenciales.`;
     }
   }
-
-  logout() {
-    this.authService.logout();
-  }
 };
