@@ -92,6 +92,10 @@
       '@angular2-material/menu': {
         format: 'cjs',
         main: 'menu.umd.js'
+      },
+      '@angular2-material/radio': {
+        format: 'cjs',
+        main: 'radio.umd.js'
       } 
     },
     meta: {

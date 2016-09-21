@@ -19,12 +19,14 @@ import { MdListModule } from '@angular2-material/list';
 import { MdInputModule } from '@angular2-material/input';
 import { MdMenuModule } from '@angular2-material/menu';
 import { MdGridListModule } from '@angular2-material/grid-list';
+import { MdRadioModule } from '@angular2-material/radio';
 
 @NgModule({
     imports: [
         MdMenuModule.forRoot(),
         ValidationMessagesModule.forRoot(),
-        MdGridListModule.forRoot()
+        MdGridListModule.forRoot(),
+        MdRadioModule.forRoot()
     ],
     exports: [
         CommonModule,
@@ -38,7 +40,8 @@ import { MdGridListModule } from '@angular2-material/grid-list';
         MdListModule,
         MdInputModule,
         MdMenuModule,
-        MdGridListModule
+        MdGridListModule,
+        MdRadioModule
     ],
     declarations: [],
     providers: [],
