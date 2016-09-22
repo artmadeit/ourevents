@@ -5,17 +5,18 @@
         Detalles del evento
       </md-toolbar>
       <md-card-content>
-        <md-input class="full-width" placeholder="Nombre del evento" required formControlName="name">
+        <md-input class="full-width" placeholder="Nombre del evento" required formControlName="name" 
+          dividerColor="{{ errors.name ? 'warn' : 'primary' }}">
+          <md-hint [hidden]="!errors.name" align="end">
+            <span>{{ errors.name }}</span>
+          </md-hint>
         </md-input>
-        <div *ngIf="errors.name" class="alert alert-danger">
-          {{ errors.name }}
-        </div>
-        <md-input class="full-width" placeholder="Una pequeña descripción de {{eventForm.controls.name.value}}" formControlName="description">
+        <md-input class="full-width" placeholder="Una pequeña descripción de {{eventForm.controls.name.value}}" 
+          formControlName="description" dividerColor="{{ errors.description ? 'warn' : 'primary' }}">
+          <md-hint [hidden]="!errors.description" align="end">
+            <span>{{ errors.description }}</span>
+          </md-hint>
         </md-input>
-        <div *ngIf="errors.description" class="alert alert-danger">
-          {{ errors.description }}
-        </div>
-
         <label for="isPublic">Visibilidad:</label>
         <md-radio-group id="isPublic" formControlName="isPublic">
           <md-radio-button value="true">Público (Se publicará este evento en la MyniWorld)</md-radio-button>
@@ -33,12 +34,13 @@
           <sebm-google-map-marker [latitude]="latitude" [longitude]="longitude">
           </sebm-google-map-marker>
         </sebm-google-map>
-        <md-input class="full-width" placeholder="Da una referencia del lugar" formControlName="location">
+        <md-input class="full-width" placeholder="Da una referencia del lugar" formControlName="location"
+          dividerColor="{{ errors.location ? 'warn' : 'primary' }}">
+          <md-hint [hidden]="!errors.location" align="end">
+            <span>{{ errors.location }}</span>
+          </md-hint>
         </md-input>
-        <div *ngIf="errors.location" class="alert alert-danger">
-          {{ errors.location }}
-        </div>
-        
+
       </md-card-content>
     </md-card>
     <button md-raised-button [disabled]="!eventForm.valid">Agregar</button>

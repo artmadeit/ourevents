@@ -98,6 +98,17 @@ md-card md-card-content {
 }
 
 md-input {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+md-hint {
+    position: absolute;
+    font-size: 75%;
+    bottom: -0.5em;
+}
+
+/*TODO remove this in an angular 2 material future release*/
+md-input.ng-invalid {
+    color: #f44336;
 }

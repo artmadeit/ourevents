@@ -53,7 +53,7 @@ export class EventCreateComponent implements OnInit {
                     Validators.required,
                     Validators.maxLength(100)
                 ]],
-                'description': '',
+                'description': ['', [Validators.maxLength(100)]],
                 'isPublic': ['true', [Validators.required]],
                 'location': ['', [Validators.maxLength(100)]],
             });

@@ -16,21 +16,24 @@
                         </md-toolbar>
                         <md-card-content>
                             <form [formGroup]="userForm" (ngSubmit)="register()">
-                                <md-input formControlName="name" class="full-width" placeholder="Nombre" required>
+                                <md-input formControlName="name" class="full-width" placeholder="Nombre" required
+                                    dividerColor="{{ errors.name ? 'warn' : 'primary' }}">
+                                    <md-hint [hidden]="!errors.name" align="end">
+                                        <span>{{ errors.name }}</span>
+                                    </md-hint>
                                 </md-input>
-                                <div *ngIf="errors.name" class="alert alert-danger">
-                                    {{ errors.name }}
-                                </div>
-                                <md-input formControlName="email" type="email" class="full-width" placeholder="Correo electrónico" required>
+                                <md-input formControlName="email" type="email" class="full-width" placeholder="Correo electrónico" required
+                                    dividerColor="{{ errors.email ? 'warn' : 'primary' }}">
+                                    <md-hint [hidden]="!errors.email" align="end">
+                                        <span>{{ errors.email }}</span>
+                                    </md-hint>
                                 </md-input>
-                                <div *ngIf="errors.email" class="alert alert-danger">
-                                    {{ errors.email }}
-                                </div>
-                                <md-input formControlName="password" type="password" class="full-width" placeholder="Contraseña" required>
+                                <md-input formControlName="password" type="password" class="full-width" placeholder="Contraseña" required
+                                    dividerColor="{{ errors.password ? 'warn' : 'primary' }}">
+                                    <md-hint [hidden]="!errors.password" align="end">
+                                        <span>{{ errors.password }}</span>
+                                    </md-hint>
                                 </md-input>
-                                <div *ngIf="errors.password" class="alert alert-danger">
-                                    {{ errors.password }}
-                                </div>
                                 <button md-raised-button [disabled]="!userForm.valid">Enviar</button>
                             </form>
                             <p>Al registrarme, acepto los términos de servicio, la política de privacidad de OurEvents y doy
