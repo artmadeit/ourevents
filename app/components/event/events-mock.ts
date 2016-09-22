@@ -1,4 +1,5 @@
-import { Event, Person, TimePeriod } from './event';
+import { Event, TimePeriod } from './event';
+import { kentBeck, martinFowler } from  '../party/persons-mock';
 
 export const EVENTS: Event[] = [
     {
@@ -7,7 +8,7 @@ export const EVENTS: Event[] = [
         location: {
             name: 'San Borja'
         },
-        speaker: new Person('Kent', 'Beck'),
+        speaker: kentBeck,
         period: new TimePeriod(new Date(2016, 08, 11), new Date()),
         isPublic: true
     },
@@ -18,7 +19,7 @@ export const EVENTS: Event[] = [
         location: {
             name: 'Ate'
         },
-        speaker: new Person('Martin', 'Fowler'),
+        speaker: martinFowler,
         period: new TimePeriod(new Date(2016, 09, 12), new Date()),
         isPublic: true
     }

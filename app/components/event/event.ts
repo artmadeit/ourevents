@@ -1,3 +1,5 @@
+import { Person } from '../party/person';
+
 export interface Event {
   id?: number;
   name: string;
@@ -29,16 +31,5 @@ export class TimePeriod {
 
   get end(): Date {
     return this._end;
-  }
-}
-
-export class Person {
-
-  constructor(
-    public firstName: string,
-    public lastName: string) { }
-
-  get name() {
-    return `${this.firstName} ${this.lastName}`;
   }
 }
