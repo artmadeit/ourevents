@@ -54,7 +54,7 @@ export class EventCreateComponent implements OnInit {
                     Validators.maxLength(100)
                 ]],
                 'description': '',
-                'isPublic': ['', [Validators.required]],
+                'isPublic': ['true', [Validators.required]],
                 'location': ['', [Validators.maxLength(100)]],
             });
 
@@ -83,7 +83,7 @@ export class EventCreateComponent implements OnInit {
                 },
                 speaker: new Person('', ''),
                 period: new TimePeriod(new Date(), new Date()),
-                isPublic: true
+                isPublic: this.eventForm.controls['isPublic'].value
             })
             .then(event => {
                 alert('Evento creado');
