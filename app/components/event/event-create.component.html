@@ -1,27 +1,46 @@
-<div>
-  <md-card>
-    <md-toolbar color="primary">
-      Crear evento
-    </md-toolbar>
-    <md-card-content>
-      <form (ngSubmit)="save()">
-        <md-input placeholder="Nombre (máx 100)" maxlength="100" #nameHint [(ngModel)]="event.name" name="name">
-          <md-hint align="end">{{nameHint.characterCount}} / 100</md-hint>
+<div class="container">
+  <form [formGroup]="eventForm" (ngSubmit)="save()">
+    <md-card>
+      <md-toolbar color="primary">
+        Detalles del evento
+      </md-toolbar>
+      <md-card-content>
+        <md-input class="full-width" placeholder="Nombre del evento" required formControlName="name">
         </md-input>
-        <md-input placeholder="Descripcion (máx 500)" maxlength="500" #descriptionHint [(ngModel)]="event.description" name="description">
-          <md-hint align="end">{{descriptionHint.characterCount}} / 500</md-hint>
+        <div *ngIf="errors.name" class="alert alert-danger">
+          {{ errors.name }}
+        </div>
+        <md-input class="full-width" placeholder="Una pequeña descripción de {{eventForm.controls.name.value}}" formControlName="description">
         </md-input>
-        <md-input placeholder="Descripción del lugar" maxlength="100" #locationHint [(ngModel)]="event.location.name" name="location">
-          <md-hint align="end">{{locationHint.characterCount}} / 100</md-hint>
-        </md-input>
-        <button md-raised-button>Agregar</button>
-      </form>
-    </md-card-content>
-  </md-card>
+        <div *ngIf="errors.description" class="alert alert-danger">
+          {{ errors.description }}
+        </div>
 
-
-  <sebm-google-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" (mapClick)="mapClicked($event)">
-    <sebm-google-map-marker [latitude]="latitude" [longitude]="longitude">
-    </sebm-google-map-marker>
-  </sebm-google-map>
+        <label for="isPublic">Visibilidad:</label>
+        <md-radio-group id="isPublic" formControlName="isPublic">
+          <md-radio-button value="true">Público (Se publicará este evento en la MyniWorld)</md-radio-button>
+          <md-radio-button value="false">Privado (Solo aquellas personas y organizaciones involucradas podrán verlo)</md-radio-button>
+        </md-radio-group>
+      </md-card-content>
+    </md-card>
+    <md-card>
+      <md-toolbar color="primary">
+        Ubicación
+      </md-toolbar>
+      <md-card-content>
+        <label for="map">Haz un click al mapa para indicar donde exactamente sera {{eventForm.controls.name.value}}</label>
+        <sebm-google-map id="map" [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" (mapClick)="mapClicked($event)">
+          <sebm-google-map-marker [latitude]="latitude" [longitude]="longitude">
+          </sebm-google-map-marker>
+        </sebm-google-map>
+        <md-input class="full-width" placeholder="Da una referencia del lugar" formControlName="location">
+        </md-input>
+        <div *ngIf="errors.location" class="alert alert-danger">
+          {{ errors.location }}
+        </div>
+        
+      </md-card-content>
+    </md-card>
+    <button md-raised-button [disabled]="!eventForm.valid">Agregar</button>
+  </form>
 </div>

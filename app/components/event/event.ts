@@ -5,6 +5,7 @@ export interface Event {
   location: Location;
   speaker: Person;
   period: TimePeriod;
+  isPublic: boolean;
 }
 
 export interface Location {

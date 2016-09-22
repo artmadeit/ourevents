@@ -12,7 +12,7 @@ export class EventService {
 	constructor(private http: Http) { }
 
 	list(): Promise<Event[]> {
-		return Promise.resolve(EVENTS);
+		return Promise.resolve(EVENTS.filter((x) => x.isPublic));
 		// return this.http.get(this.eventsURL)
 		//     .toPromise()
 		//     .then(response => response.json().data as Event[])

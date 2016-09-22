@@ -8,7 +8,8 @@ export const EVENTS: Event[] = [
             name: 'San Borja'
         },
         speaker: new Person('Kent', 'Beck'),
-        period: new TimePeriod(new Date(2016, 08, 11), new Date())
+        period: new TimePeriod(new Date(2016, 08, 11), new Date()),
+        isPublic: true
     },
     {
         id: 2,
@@ -18,6 +19,7 @@ export const EVENTS: Event[] = [
             name: 'Ate'
         },
         speaker: new Person('Martin', 'Fowler'),
-        period: new TimePeriod(new Date(2016, 09, 12), new Date())
+        period: new TimePeriod(new Date(2016, 09, 12), new Date()),
+        isPublic: true
     }
 ];
