@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { EventService } from './event.service';
 import { Location, TimePeriod } from './event';
-import { Person } from '../party/person';
+import { Person } from '../party/person/index';
 
 import { MouseEvent } from 'angular2-google-maps/core';
 

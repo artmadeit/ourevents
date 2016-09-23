@@ -1,11 +1,11 @@
-import { Person } from '../party/person';
+import { Person } from '../party/person/index';
 
 export interface Event {
   id?: number;
   name: string;
   description?: string;
   location: Location;
-  speaker: Person;
+  speaker: Person; // TODO change this to  accountability pattern...
   period: TimePeriod;
   isPublic: boolean;
 }

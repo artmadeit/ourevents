@@ -1,5 +1,5 @@
 import { Event, TimePeriod } from './event';
-import { kentBeck, martinFowler } from  '../party/persons-mock';
+import { kentBeck, martinFowler } from  '../party/person/mock';
 
 export const EVENTS: Event[] = [
     {

@@ -46,11 +46,7 @@
         Organizadores
       </md-toolbar>
       <md-card-content>
-        <md-input placeholder="Búsca por nombre">
-          <button md-mini-fab>
-            <md-icon class="md-24">add</md-icon>
-          </button>
-        </md-input>
+        <party-search></party-search>
       </md-card-content>
     </md-card>
     <button md-raised-button [disabled]="!eventForm.valid">Agregar</button>

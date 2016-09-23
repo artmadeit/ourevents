@@ -1,4 +1,4 @@
-import { Party } from './party';
+import { Party } from '../party';
 
 export class Person extends Party {
   constructor(
