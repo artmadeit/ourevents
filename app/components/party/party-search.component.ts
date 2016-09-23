@@ -20,7 +20,7 @@ import 'rxjs/add/operator/switchMap';
         <md-list [ngClass]= "{'md-menu': existParties, 'md-overlay-pane': true }">
             <md-list-item *ngFor="let party of parties">
                 <h3 md-line> {{party.name}} </h3>
-                <p md-line><span> {{party.name}} </span> </p>
+                <p md-line><span> {{party.shortDescription}} </span> </p>
             </md-list-item>
         </md-list>
     </div>`,
