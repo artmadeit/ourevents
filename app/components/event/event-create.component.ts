@@ -54,6 +54,7 @@ export class EventCreateComponent implements OnInit {
                     Validators.required,
                     Validators.maxLength(100)
                 ]],
+                'acronym': ['', [Validators.maxLength(12)]],
                 'description': ['', [Validators.maxLength(100)]],
                 'isPublic': ['true', [Validators.required]],
                 'location': ['', [Validators.maxLength(100)]],
@@ -76,15 +77,17 @@ export class EventCreateComponent implements OnInit {
         this.eventService
             .save({
                 name: this.eventForm.controls['name'].value,
+                acronym: this.eventForm.controls['acronym'].value,
                 description: this.eventForm.controls['description'].value,
+                isPublic: this.eventForm.controls['isPublic'].value,
                 location: {
                     name: this.eventForm.controls['location'].value,
                     latitude: this.location.latitude,
                     longitude: this.location.longitude
                 },
+                // TODO fix this to accountability and use datepicker
                 speaker: new Person('', ''),
-                period: new TimePeriod(new Date(), new Date()),
-                isPublic: this.eventForm.controls['isPublic'].value
+                period: new TimePeriod(new Date(), new Date())
             })
             .then(event => {
                 alert('Evento creado');

@@ -6,6 +6,7 @@
     "customAttributes" : {
         "name": "nombre",
         "password": "contraseña",
-        "email": "correo electrónico"
+        "email": "correo electrónico",
+        "acronym": "acrónimo"
     }
 }

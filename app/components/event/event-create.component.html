@@ -5,11 +5,22 @@
         Detalles del evento
       </md-toolbar>
       <md-card-content>
-        <md-input class="full-width" placeholder="Nombre del evento" required formControlName="name" dividerColor="{{ errors.name ? 'warn' : 'primary' }}">
-          <md-hint [hidden]="!errors.name" align="end">
-            <span>{{ errors.name }}</span>
-          </md-hint>
-        </md-input>
+        <div class="row">
+          <div class="col-lg-8">
+            <md-input class="full-width" placeholder="Nombre del evento" required formControlName="name" dividerColor="{{ errors.name ? 'warn' : 'primary' }}">
+              <md-hint [hidden]="!errors.name" align="end">
+                <span>{{ errors.name }}</span>
+              </md-hint>
+            </md-input>
+          </div>
+          <div class="col-lg-4">
+            <md-input class="full-width" placeholder="Acrónimo" formControlName="acronym" dividerColor="{{ errors.acronym ? 'warn' : 'primary' }}">
+              <md-hint [hidden]="!errors.acronym" align="end">
+                <span>{{ errors.acronym }}</span>
+              </md-hint>
+            </md-input>
+          </div>
+        </div>
         <md-input class="full-width" placeholder="Una pequeña descripción de {{eventForm.controls.name.value}}" formControlName="description"
           dividerColor="{{ errors.description ? 'warn' : 'primary' }}">
           <md-hint [hidden]="!errors.description" align="end">

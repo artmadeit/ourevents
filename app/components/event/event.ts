@@ -3,6 +3,7 @@ import { Person } from '../party/person/index';
 export interface Event {
   id?: number;
   name: string;
+  acronym?: string;
   description?: string;
   location: Location;
   speaker: Person; // TODO change this to  accountability pattern...
