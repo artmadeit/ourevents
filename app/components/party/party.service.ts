@@ -13,6 +13,6 @@ export class PartyService {
     }
 
     private fakeSearch(term: string): Party[] {
-        return PARTIES.filter((party) => party.name.toUpperCase().includes(term.toUpperCase()));
+        return PARTIES.filter((party) => party.name.toUpperCase().includes(term.toUpperCase())).slice(0, 5);
     }
 }

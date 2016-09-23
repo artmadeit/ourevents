@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { EventService } from './event.service';
 import { Location, TimePeriod } from './event';
+import { Party } from '../party/party';
+//TODO delete this...
 import { Person } from '../party/person/index';
 
 import { MouseEvent } from 'angular2-google-maps/core';
@@ -19,6 +21,10 @@ import { ValidationMessagesService, MessageBag } from 'ng2-custom-validation/src
     styles: [`
         .sebm-google-map-container {
             height: 300px;
+        }
+
+        .search {
+            margin: 8px;
         }
     `]
 })
@@ -111,5 +117,9 @@ export class EventCreateComponent implements OnInit {
         let result = this.location.longitude ?
             this.location.longitude : this.defaultLocation.longitude;
         return result;
+    }
+
+    getSelectedParty(selectedParty: Party) {
+        console.log('Selected:', selectedParty);
     }
 }
