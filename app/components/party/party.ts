@@ -1,5 +1,6 @@
-export abstract class Party {
+import { Nameable } from '../common/nameable';
+
+export abstract class Party extends Nameable {
   id: number;
   shortDescription: string;
-  abstract get name(): string;
 }

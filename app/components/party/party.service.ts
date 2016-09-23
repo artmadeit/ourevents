@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { Party } from './party';
 import { PARTIES } from './mock';
 
+import {searchByName } from '../common/search-mock';
+
 @Injectable()
 export class PartyService {
     constructor() { }
@@ -13,6 +15,6 @@ export class PartyService {
     }
 
     private fakeSearch(term: string): Party[] {
-        return PARTIES.filter((party) => party.name.toUpperCase().includes(term.toUpperCase())).slice(0, 5);
+        return <Party[]>searchByName(PARTIES, term);
     }
 }
