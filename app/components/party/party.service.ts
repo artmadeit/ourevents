@@ -5,9 +5,10 @@ import { Party } from './party';
 import { PARTIES } from './mock';
 
 import {searchByName } from '../common/search-mock';
+import { Searcher } from '../common/search/searcher';
 
 @Injectable()
-export class PartyService {
+export class PartyService implements Searcher {
     constructor() { }
 
     search(term: string): Observable<Party[]> {

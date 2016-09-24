@@ -1,25 +1,19 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
-
+import { SearchComponent } from '../common/search/search.component';
 import { PartyService } from './party.service';
 import { Party } from './party';
-
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/distinctUntilChanged';
-import 'rxjs/add/operator/switchMap';
 
 @Component({
     moduleId: module.id,
     selector: 'party-search',
     template: `
         <md-input class="full-width" placeholder="Busca por nombre una persona u organización" 
-            value="{{selectedPartyName}}" #searchBox (keyup)="search(searchBox.value)">
+            [(ngModel)]="selectedPartyName" #searchBox (keyup)="search(searchBox.value)">
         </md-input>
-        <div *ngIf="!partyIsSelected">
-            <md-list [ngClass]= "{'md-menu': existParties, 'md-overlay-pane': true }">
-                <md-list-item (click)="select(party)" *ngFor="let party of parties">
+        <div *ngIf="!isItemSelected">
+            <md-list [ngClass]= "{'md-menu': existItems, 'md-overlay-pane': true }">
+                <md-list-item (click)="select(party)" *ngFor="let party of items">
                     <h3 md-line> {{party.name}} </h3>
                     <p md-line><span> {{party.shortDescription}} </span> </p>
                 </md-list-item>
@@ -27,49 +21,55 @@ import 'rxjs/add/operator/switchMap';
         </div>
     `
 })
-export class PartySearchComponent implements OnInit {
-    @Output()
-    onChooseParty = new EventEmitter<Party>();
+export class PartySearchComponent extends SearchComponent implements OnInit {
     selectedPartyName: string;
-    partyIsSelected: boolean = false;
-    parties: Party[];
-    private searchTerms = new Subject<string>();
+    @Output() onChooseParty = new EventEmitter<Party>();
 
-    constructor(private service: PartyService) {
-    }
-
-    ngOnInit() {
-        const parties: Observable<Party[]> =
-            this.searchTerms
-                .debounceTime(300)        // wait for 300ms pause in events
-                .distinctUntilChanged()   // ignore if next search term is same as previous
-                .switchMap(term => term   // switch to new observable each time
-                    ? this.service.search(term)
-                    // or the observable of empty parties if no search term
-                    : Observable.of<Party[]>([]))
-                .catch(error => {
-                    // TODO: real error handling
-                    console.log(error);
-                    return Observable.of<Party[]>([]);
-                });
-
-        parties.subscribe((data: Party[]) => {
-            this.parties = data;
-        });
-    }
-
-    search(term: string): void {
-        this.partyIsSelected = false;
-        this.searchTerms.next(term);
+    constructor(service: PartyService) {
+        super(service);
     }
 
     select(party: Party) {
+        super.onSelect();
         this.selectedPartyName = party.name;
-        this.partyIsSelected = true;
+        console.log('selected', this.selectedPartyName);
         this.onChooseParty.emit(party);
     }
-
-    get existParties(): boolean {
-        return !!this.parties && this.parties.length !== 0;
-    }
 }
+
+
+// const hola = 
+// `
+// <search >
+//     <search-box placeholder="Busca por nombre una persona u organización">
+//     <search-list>
+//         <search-list-item (click)="select(party)" *ngFor="let item of items">
+//                 <h3 md-line> {{item.avatar}} </h3>
+//                 <h3 md-line> {{item.name}} </h3>
+//                 <p md-line><span> {{party.shortDescription}} </span> </p>
+//         </search-list-item>
+//     </search-list>
+// </search>
+//     `;
+
+
+
+
+
+
+//     const hola2 = 
+// `
+// <search>
+//     <search-box placeholder="Busca por nombre una persona u organización">
+//     <search-list>
+//         <search-list-item (click)="select(party)" *ngFor="let item of items">
+//                 <h3 md-line> {{item.avatar}} </h3>
+//                 <h3 md-line> {{item.name}} </h3>
+//                 <p md-line><span> {{party.shortDescription}} </span> </p>
+//         </search-list-item>
+//     </search-list>
+// </search>
+//     `
+
+
+

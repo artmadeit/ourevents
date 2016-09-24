@@ -3,6 +3,7 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 // FIX this in ng2-custom-validation..to use ng2-custom-validation/core 
@@ -26,6 +27,7 @@ import { MdRadioModule } from '@angular2-material/radio';
     ],
     exports: [
         CommonModule,
+        FormsModule,
         ReactiveFormsModule,
         MdButtonModule,
         MdCardModule,
