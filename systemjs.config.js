@@ -26,8 +26,7 @@
       'angular2-in-memory-web-api': 'npm:angular2-in-memory-web-api',
       '@angular2-material': 'npm:@angular2-material',
       'angular2-google-maps/core': 'npm:angular2-google-maps/core',
-      'ng2-custom-validation': 'npm:ng2-custom-validation',
-       json: 'npm:systemjs-plugin-json/json.js',
+      'ng2-custom-validation': 'npm:ng2-custom-validation'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -97,11 +96,6 @@
         format: 'cjs',
         main: 'radio.umd.js'
       } 
-    },
-    meta: {
-      'i18n/*.json': {
-        loader: 'json'
-      }
     }
   });
 })(this);

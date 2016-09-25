@@ -6,9 +6,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
-// FIX this in ng2-custom-validation..to use ng2-custom-validation/core 
-import { ValidationMessagesModule } from 'ng2-custom-validation/src/index';
-
+import { ValidationMessagesModule, ValidationMessagesLoader } from 'ng2-custom-validation/index';
+import { messageLoaderFactory } from './messages/loader';
 import { MdButtonModule } from '@angular2-material/button';
 import { MdCardModule } from '@angular2-material/card';
 import { MdCheckboxModule } from '@angular2-material/checkbox';
@@ -22,7 +21,10 @@ import { MdRadioModule } from '@angular2-material/radio';
 @NgModule({
     imports: [
         MdMenuModule.forRoot(),
-        ValidationMessagesModule.forRoot(),
+        ValidationMessagesModule.forRoot({
+            provide: ValidationMessagesLoader,
+            useFactory: messageLoaderFactory
+        }),
         MdRadioModule.forRoot()
     ],
     exports: [
