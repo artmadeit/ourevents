@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RegisterUserService } from './register.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-// FIX this in ng2-custom-validation..to use ng2-custom-validation/core 
-// TODO make typed message bag to message bag..
-import { ValidationMessagesService, MessageBag } from 'ng2-custom-validation/src/index';
+import { ValidationMessagesService, MessageBag } from 'ng2-custom-validation';
 
 @Component({
     moduleId: module.id,

@@ -10,9 +10,7 @@ import { Person } from '../party/person/index';
 import { MouseEvent } from 'angular2-google-maps/core';
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-// FIX this in ng2-custom-validation..to use ng2-custom-validation/core 
-// TODO make typed message bag to message bag..
-import { ValidationMessagesService, MessageBag } from 'ng2-custom-validation/src/index';
+import { ValidationMessagesService, MessageBag } from 'ng2-custom-validation';
 
 @Component({
     moduleId: module.id,

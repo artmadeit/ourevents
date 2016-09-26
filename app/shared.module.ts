@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { ValidationMessagesModule, ValidationMessagesLoader } from 'ng2-custom-validation/index';
+import { ValidationMessagesModule, ValidationMessagesLoader } from 'ng2-custom-validation';
 import { messageLoaderFactory } from './messages/loader';
 import { MdButtonModule } from '@angular2-material/button';
 import { MdCardModule } from '@angular2-material/card';
