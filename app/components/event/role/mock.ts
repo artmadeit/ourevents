@@ -1,10 +1,10 @@
-import { EventRole, EventRoles } from './event-role';
+import { EventRoleType, EventRoleTypes } from './event-role';
 
-export const eventRoles: EventRole[] = [
-    EventRoles.Sponsor,
-    EventRoles.Author,
-    EventRoles.Attendance,
-    EventRoles.Reviewer,
-    EventRoles.ProgramChair,
-    EventRoles.Organizer
+export const eventRoles: EventRoleType[] = [
+    EventRoleTypes.Sponsor,
+    EventRoleTypes.Author,
+    EventRoleTypes.Attendance,
+    EventRoleTypes.Reviewer,
+    EventRoleTypes.ProgramChair,
+    EventRoleTypes.Organizer
 ];

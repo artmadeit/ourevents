@@ -19,7 +19,7 @@ export class Accountability {
         return true;
     }
 
-    private constructor(parent: Party, child: Party, type: AccountabilityType) {
+    protected constructor(parent: Party, child: Party, type: AccountabilityType) {
         this.parent = parent;
         parent.friendAddChildAccountability(this);
         this.child = child;

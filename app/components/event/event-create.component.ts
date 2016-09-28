@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Location, TimePeriod, Event, EventService, EventRoles } from './index';
+import { Location, TimePeriod, EventService, Event,  EventRole, EventRoleTypes } from './index';
 import { Party } from '../party/party';
-import { Accountability } from '../accountability/accountability';
 
 
 import { MouseEvent } from 'angular2-google-maps/core';
@@ -113,12 +112,8 @@ export class EventCreateComponent implements OnInit {
 
     // TODO refactor this.. to a new component
     private selectedOrganization: any;
-    // TODO remove this to use accountability pattern
-    //sponsorTypes: Map<string, Set<Party>>;
-
     addSponsorType(sponsorType: any) {
-        //this.sponsorTypes.set(sponsorType.value, new Set<Party>([this.selectedOrganization]));
-        console.log(Accountability.create(this.selectedOrganization, this.event, EventRoles.Sponsor));
+        EventRole.create(this.selectedOrganization, this.event, EventRoleTypes.Sponsor, sponsorType.value);
         sponsorType.value = '';
     }
 
