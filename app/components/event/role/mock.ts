@@ -1,9 +1,10 @@
-import { EventRole} from './event-role';
+import { EventRole } from './event-role';
 
-export const EVENTS: EventRole[] = [
-    new EventRole('autores'),
-    new EventRole('atendientes'),
-    new EventRole('revisor', 'miembro del comite del programa'),
-    new EventRole('jefe de programa'),
-    new EventRole('organizador', 'miembro del comite organizador'),
+export const eventRoles: EventRole[] = [
+    new EventRole('Sponsor'),
+    new EventRole('Autor'),
+    new EventRole('Atendiente'),
+    new EventRole('Revisor'),
+    new EventRole('Jefe de programa'),
+    new EventRole('Organizador'),
 ];

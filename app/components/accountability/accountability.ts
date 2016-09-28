@@ -1,14 +1,20 @@
 import { Party } from '../party/party';
+import { NamedObject } from '../common/nameable';
 
 export class Accountability {
-    readonly from: Party;
-    readonly to: Party;
+    readonly parent: Party;
+    readonly child: Party;
+    readonly type: AccountabilityType;
 
-    constructor(from: Party, to: Party) {
+    constructor(from: Party, to: Party, type: AccountabilityType) {
         if (from === to) {
             throw new Error(`Can't be an Accountability from the same party`);
         }
-        this.from = from;
-        this.to = to;
+        this.parent = from;
+        this.child = to;
+        this.type = type;
     }
+}
+
+export class AccountabilityType extends NamedObject {
 }

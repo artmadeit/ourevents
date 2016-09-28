@@ -24,6 +24,8 @@ export class Event extends Party {
   set name(name: string) {
     this._name = name;
   }
+
+  
 }
 
 interface Point {
