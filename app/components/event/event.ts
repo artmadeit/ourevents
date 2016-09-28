@@ -1,4 +1,5 @@
-import { Party } from '../party/party';
+import { Party, Person } from '../party/index';
+import { EventRoleTypes } from './index';
 
 export class Event extends Party {
   private _name: string;
@@ -20,6 +21,10 @@ export class Event extends Party {
 
   set name(name: string) {
     this._name = name;
+  }
+
+  get speakers(): Person[] {
+    return this.parents(EventRoleTypes.Speaker) as Person[];
   }
 }
 

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Location, TimePeriod, EventService, Event } from './index';
+import { EventService } from './event.service';
+import { Location, TimePeriod, Event } from './index';
 import { Party } from '../party/party';
 
 import { MouseEvent } from 'angular2-google-maps/core';

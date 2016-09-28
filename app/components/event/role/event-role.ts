@@ -19,7 +19,8 @@ export class EventRoleType extends AccountabilityType {
 
 export class EventRoleTypes {
     static Sponsor = new EventRoleType('Sponsor');
-    static Author = new EventRoleType('Autor')
+    static Author = new EventRoleType('Autor');
+    static Speaker = new EventRoleType('Expositor');
     static Attendance = new EventRoleType('Atendiente');
     static Reviewer = new EventRoleType('Revisor');
     static ProgramChair = new EventRoleType('Jefe de programa');

@@ -7,9 +7,13 @@
           <!--<img md-card-avatar src="https://static.thoughtworks.com/images/photo-card-grid/tech-radar-april16.jpg">
           -->
           <md-card-title>{{event.name}}</md-card-title>
-          <!--<md-card-subtitle>por {{event.speaker.name}}</md-card-subtitle>-->
+          <!--TODO move this to detail, now is a proof of concept-->
+          <md-card-subtitle>Expositores</md-card-subtitle>
+          <div *ngFor="let speaker of event.speakers">
+            <p>{{speaker.name}}</p>
+          </div>
         </md-card-header>
-        
+
         <!--<img md-card-image height="200px" src="https://static.thoughtworks.com/images/photo-card-grid/tech-radar-april16.jpg">
         -->
         <md-card-content>

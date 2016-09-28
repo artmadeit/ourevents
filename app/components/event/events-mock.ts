@@ -1,5 +1,4 @@
-import { Event, TimePeriod, Location } from './event';
-// TODO move to accountability pattern
+import { Event, TimePeriod, Location, EventRole, EventRoleTypes } from './index';
 import { kentBeck, martinFowler } from '../party/person/mock';
 
 let startupsMillionare = new Event(
@@ -10,6 +9,7 @@ let startupsMillionare = new Event(
 
 startupsMillionare.id = 1;
 startupsMillionare.shortDescription = `Startups can't be millionare, that's the question`;
+EventRole.create(kentBeck, startupsMillionare, EventRoleTypes.Speaker);
 
 let nosqlDatabase = new Event(
     'Introduction to NOSQL databases',
@@ -19,6 +19,7 @@ let nosqlDatabase = new Event(
 
 nosqlDatabase.shortDescription = 'Martin Fowler explains when, why and how NOSQL databases are useful';
 nosqlDatabase.description = 'some description';
+EventRole.create(martinFowler, nosqlDatabase, EventRoleTypes.Speaker);
 
 export const EVENTS: Event[] = [
     startupsMillionare,
