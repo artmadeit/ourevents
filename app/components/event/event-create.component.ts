@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { EventService } from './event.service';
-import { Location, TimePeriod, Event } from './event';
+import { Location, TimePeriod, Event, EventService, EventRoles } from './index';
 import { Party } from '../party/party';
+import { Accountability } from '../accountability/accountability';
+
 
 import { MouseEvent } from 'angular2-google-maps/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -31,8 +32,6 @@ export class EventCreateComponent implements OnInit {
         location: new Location('Lima', { latitude: -12, longitude: -77 }),
         zoom: 12
     };
-    // TODO remove this to use accountability pattern
-    sponsorTypes: Map<string, Set<Party>>;
 
     constructor(
         private eventService: EventService,
@@ -40,7 +39,6 @@ export class EventCreateComponent implements OnInit {
         private formBuilder: FormBuilder,
         private validationMessagesService: ValidationMessagesService) {
         this.event = new Event('', this.map.location, new TimePeriod(new Date(), new Date()));
-        this.sponsorTypes = new Map<string, Set<Party>>();
     }
 
     ngOnInit() {
@@ -114,15 +112,18 @@ export class EventCreateComponent implements OnInit {
     }
 
     // TODO refactor this.. to a new component
-    // private selectedOrganization: any;
+    private selectedOrganization: any;
+    // TODO remove this to use accountability pattern
+    //sponsorTypes: Map<string, Set<Party>>;
 
-    // addSponsorType(sponsorType: any) {
-    //     this.sponsorTypes.set(sponsorType.value, new Set<Party>([this.selectedOrganization]));
-    //     sponsorType.value = '';
-    // }
+    addSponsorType(sponsorType: any) {
+        //this.sponsorTypes.set(sponsorType.value, new Set<Party>([this.selectedOrganization]));
+        console.log(Accountability.create(this.selectedOrganization, this.event, EventRoles.Sponsor));
+        sponsorType.value = '';
+    }
 
-    // getSelectedSponsor(selectedSponsor: Party) {
-    //     this.selectedOrganization = selectedSponsor;
-    // }
+    getSelectedSponsor(selectedSponsor: Party) {
+        this.selectedOrganization = selectedSponsor;
+    }
 
 }

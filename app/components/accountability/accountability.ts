@@ -6,12 +6,24 @@ export class Accountability {
     readonly child: Party;
     readonly type: AccountabilityType;
 
-    constructor(from: Party, to: Party, type: AccountabilityType) {
-        if (from === to) {
-            throw new Error(`Can't be an Accountability from the same party`);
+    static create(parent: Party, child: Party, type: AccountabilityType): Accountability {
+        if (!Accountability.canCreate(parent, child, type)) {
+            throw new Error('Invalid Accountability');
         }
-        this.parent = from;
-        this.child = to;
+        return new Accountability(parent, child, type);
+    }
+
+    static canCreate(parent: Party, child: Party, type: AccountabilityType): boolean {
+        if (parent === child) { return false; }
+        if (parent.ancestorsInclude(child, type)) { return false; }
+        return true;
+    }
+
+    private constructor(parent: Party, child: Party, type: AccountabilityType) {
+        this.parent = parent;
+        parent.friendAddChildAccountability(this);
+        this.child = child;
+        child.friendAddParentAccountability(this);
         this.type = type;
     }
 }

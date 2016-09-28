@@ -66,7 +66,7 @@
 
       </md-card-content>
     </md-card>
-    <md-card>
+    <!--<md-card>
       <md-toolbar color="primary">
         Organizadores
       </md-toolbar>
@@ -82,7 +82,7 @@
           </div>
         </div>
       </md-card-content>
-    </md-card>
+    </md-card>-->
     <md-card>
       <!--
         TODO financial share
@@ -93,12 +93,12 @@
         Auspiciadores
       </md-toolbar>
       <md-card-content>
-        <!--<div class="row">
+        <div class="row">
           <div class="col-lg-4">
             <party-search (onChooseParty)="getSelectedSponsor($event)"></party-search>
           </div>
           <div class="col-lg-4">
-            <md-input class="full-width" placeholder="Tipo de auspiciador como Golden o Platinum" name="sponsorType" #sponsorType>
+            <md-input class="full-width" placeholder="Tipo de auspiciador (e.g. Golden o Platinum) " name="sponsorType" #sponsorType>
             </md-input>
           </div>
           <div class="col-lg-2">
@@ -107,7 +107,7 @@
             </button>
           </div>
         </div>
-        <div class="row" *ngFor="let sponsorType of sponsorTypes.keys()">
+        <!--<div class="row" *ngFor="let sponsorType of sponsorTypes.keys()">
           <h3>{{sponsorType}}</h3>
         </div>-->
         <!--TODO ngFor for every sponsorType

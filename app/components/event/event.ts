@@ -1,11 +1,9 @@
 import { Party } from '../party/party';
-import { Accountability } from '../accountability/accountability';
 
 export class Event extends Party {
   private _name: string;
   acronym?: string;
   description?: string;
-  private _accountabilities: Accountability[];
 
   constructor(
     name: string,
@@ -14,7 +12,6 @@ export class Event extends Party {
     public isPublic = true) {
     super();
     this.name = name;
-    this._accountabilities = [];
   }
 
   get name(): string {
@@ -24,8 +21,6 @@ export class Event extends Party {
   set name(name: string) {
     this._name = name;
   }
-
-  
 }
 
 interface Point {
