@@ -9,9 +9,11 @@ import { PartyModule } from '../../components/party/party.module';
 import { LandingComponent } from './landing.component';
 import { WelcomeComponent } from '../../components/welcome/welcome.component';
 
+// TODO move this to event module
 import { EventListComponent } from '../../components/event/event-list.component';
 import { EventCreateComponent } from '../../components/event/event-create.component';
 import { EventDetailComponent } from '../../components/event/event-detail.component';
+import { SponsorCreateComponent } from '../../components/event/sponsor/sponsor-create.component';
 import { EventService } from '../../components/event/event.service';
 
 import { landingRouting } from './landing.routing';
@@ -32,7 +34,8 @@ import { landingRouting } from './landing.routing';
         WelcomeComponent,
         EventListComponent,
         EventCreateComponent,
-        EventDetailComponent
+        EventDetailComponent,
+        SponsorCreateComponent
     ],
     providers: [
         EventService

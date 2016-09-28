@@ -1,0 +1,32 @@
+<md-card>
+    <!--
+        TODO financial share
+        estimated revenue, estimated expense with it's currency
+        who will own the conference name?
+      -->
+    <md-toolbar color="primary">
+        Auspiciadores
+    </md-toolbar>
+    <md-card-content>
+        <div class="row">
+            <div class="col-lg-4">
+                <party-search (onChooseParty)="getSelectedSponsor($event)"></party-search>
+            </div>
+            <div class="col-lg-4">
+                <md-input class="full-width" placeholder="Tipo de auspiciador (e.g. Golden o Platinum) " name="sponsorType" #sponsorType>
+                </md-input>
+            </div>
+            <div class="col-lg-2">
+                <button type="button" md-fab (click)="addSponsorType(sponsorType)">
+                <md-icon class="md-24">add</md-icon>
+            </button>
+            </div>
+        </div>
+        <!--<div class="row" *ngFor="let sponsorType of sponsorTypes.keys()">
+          <h3>{{sponsorType}}</h3>
+        </div>-->
+        <!--TODO ngFor for every sponsorType
+
+        <!--organization-search like institutions, projects, companies-->
+    </md-card-content>
+</md-card>
