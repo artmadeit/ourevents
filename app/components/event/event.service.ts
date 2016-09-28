@@ -19,7 +19,17 @@ export class EventService {
 		//     .catch(this.handleError);
 	}
 
-	save(event: Event): Promise<Event> {
+	save(event: any): Promise<Event> {
+		// console.log(this.eventForm.value);
+        // let event = new Event(
+        //     this.eventForm.controls['name'].value,
+        //     new Location(this.eventForm.controls['location'].value),
+        //     new TimePeriod(new Date(), new Date()),
+        //     this.eventForm.controls['isPublic'].value
+        // );
+        // event.acronym = this.eventForm.controls['acronym'].value;
+        // event.description = this.eventForm.controls['description'].value;
+
 		event.id = EVENTS.length + 1;
 		EVENTS.push(event);
 		return Promise.resolve(event);

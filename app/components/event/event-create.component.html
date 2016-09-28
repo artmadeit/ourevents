@@ -13,6 +13,19 @@
               </md-hint>
             </md-input>
           </div>
+          <!--
+            TODO Add fields of interest - topics(research area, special researh direction or a new technology),
+                 the type of event(conference, convocation, exhibition, forum, other, seminar, symposium, workshop - taller),
+                 the time (a period of time dependend on the type of event)
+                 conference URL
+                 keywords, 
+
+            <div class="col-lg-2">
+            <select name="type" id="type">
+              <option value="conference">Conferencia</option>
+              <option value="fair">Feria</option>
+            </select>
+          </div>-->
           <div class="col-lg-4">
             <md-input class="full-width" placeholder="Acrónimo" formControlName="acronym" dividerColor="{{ errors.acronym ? 'warn' : 'primary' }}">
               <md-hint [hidden]="!errors.acronym" align="end">
@@ -21,6 +34,7 @@
             </md-input>
           </div>
         </div>
+        <!--Also called scope-->
         <md-input class="full-width" placeholder="Una pequeña descripción de {{eventForm.controls.name.value}}" formControlName="description"
           dividerColor="{{ errors.description ? 'warn' : 'primary' }}">
           <md-hint [hidden]="!errors.description" align="end">
@@ -40,7 +54,7 @@
       </md-toolbar>
       <md-card-content>
         <label for="map">Haz un click al mapa para indicar donde exactamente sera {{eventForm.controls.name.value}}</label>
-        <sebm-google-map id="map" [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" (mapClick)="mapClicked($event)">
+        <sebm-google-map id="map" [latitude]="latitude" [longitude]="longitude" [zoom]="map.zoom" (mapClick)="mapClicked($event)">
           <sebm-google-map-marker [latitude]="latitude" [longitude]="longitude">
           </sebm-google-map-marker>
         </sebm-google-map>
@@ -54,15 +68,12 @@
     </md-card>
     <md-card>
       <md-toolbar color="primary">
-        Organización
+        Organizadores
       </md-toolbar>
       <md-card-content>
         <div class="row">
           <div class="col-lg-4">
             <party-search (onChooseParty)="getSelectedParty($event)"></party-search>
-          </div>
-          <div class="col-lg-4">
-            <party-search></party-search>
           </div>
           <div class="col-lg-2">
             <button md-fab>
@@ -70,6 +81,38 @@
             </button>
           </div>
         </div>
+      </md-card-content>
+    </md-card>
+    <md-card>
+      <!--
+        TODO financial share
+        estimated revenue, estimated expense with it's currency
+        who will own the conference name?
+      -->
+      <md-toolbar color="primary">
+        Auspiciadores
+      </md-toolbar>
+      <md-card-content>
+        <!--<div class="row">
+          <div class="col-lg-4">
+            <party-search (onChooseParty)="getSelectedSponsor($event)"></party-search>
+          </div>
+          <div class="col-lg-4">
+            <md-input class="full-width" placeholder="Tipo de auspiciador como Golden o Platinum" name="sponsorType" #sponsorType>
+            </md-input>
+          </div>
+          <div class="col-lg-2">
+            <button md-fab (click)="addSponsorType(sponsorType)">
+                <md-icon class="md-24">add</md-icon>
+            </button>
+          </div>
+        </div>
+        <div class="row" *ngFor="let sponsorType of sponsorTypes.keys()">
+          <h3>{{sponsorType}}</h3>
+        </div>-->
+        <!--TODO ngFor for every sponsorType
+
+        <!--organization-search like institutions, projects, companies-->
       </md-card-content>
     </md-card>
     <md-card>

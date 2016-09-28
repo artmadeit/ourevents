@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { EventRole } from './event-role';
 import { EVENTS } from './mock';
 
-import {searchByName } from '../common/search-mock';
+import {searchByName } from '../../common/search-mock';
 
 
 @Injectable()

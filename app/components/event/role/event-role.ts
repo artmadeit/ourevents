@@ -1,11 +1,10 @@
-import { Nameable } from '../common/nameable';
+import { Nameable } from '../../common/nameable';
 
-export class EventRole extends Nameable {
+export class EventRole implements Nameable {
     _name: string;
     description?: string;
 
     constructor(name: string, public synonym?: string) {
-        super();
         this._name = name;
     }
 

@@ -1,36 +1,64 @@
-import { Person } from '../party/person/index';
+import { Party } from '../party/party';
+import { Accountability } from '../accountability/accountability';
 
-export interface Event {
-  id?: number;
-  name: string;
+export class Event extends Party {
+  private _name: string;
   acronym?: string;
   description?: string;
-  location: Location;
-  speaker: Person; // TODO change this to  accountability pattern...
-  period: TimePeriod;
-  isPublic: boolean;
+  private _accountabilities: Accountability[];
+
+  constructor(
+    name: string,
+    public location: Location,
+    public period: TimePeriod,
+    public isPublic = true) {
+    super();
+    this.name = name;
+    this._accountabilities = [];
+  }
+
+  get name(): string {
+    return this._name;
+  }
+
+  set name(name: string) {
+    this._name = name;
+  }
 }
 
-export interface Location {
-  name: string;
-  latitude?: number;
-  longitude?: number;
+interface Point {
+  latitude: number;
+  longitude: number;
+}
+
+export class Location {
+  private _point: Point;
+  constructor(public name: string, point?: Point) {
+    this._point = point;
+  }
+
+  set point(point: Point) {
+    this._point = point;
+  }
+
+  get latitude() {
+    return this._point.latitude;
+  }
+
+  get longitude() {
+    return this._point.longitude;
+  }
 }
 
 export class TimePeriod {
-  private _start: Date;
-  private _end: Date;
+  readonly start: Date;
+  readonly end: Date;
 
   constructor(start: Date, end: Date) {
-    this._start = start;
-    this._end = end;
-  }
-
-  get start(): Date {
-    return this._start;
-  }
-
-  get end(): Date {
-    return this._end;
+    if (start > end) {
+      throw new Error(`The start date can't be more than end date`);
+    }
+    this.start = start;
+    this.end = end;
   }
 }

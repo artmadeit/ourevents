@@ -1,3 +1,3 @@
-export abstract class Nameable {
-    abstract get name(): string;
+export interface Nameable {
+    name: string;
 }
