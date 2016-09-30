@@ -8,25 +8,33 @@
         Auspiciadores
     </md-toolbar>
     <md-card-content>
-        <form [formGroup]="form" (ngSubmit)="addSponsor()" >
-            <div class="row">
-                <div class="col-lg-4">
-                    <md-input class="full-width" placeholder="Busca por nombre una persona u organización" formControlName="name">
-                    </md-input>
-                    <!-- TODO make this searchable
+        <div class="row">
+            <div class="col-lg-4">
+                <md-input class="full-width" placeholder="Busca por nombre una organización" [(ngModel)]="organization.name" 
+                    #searchBox (keyup)="search(searchBox.value)">
+                </md-input>
+                <div *ngIf="!isItemSelected">
+                    <md-list [ngClass]="{'md-menu': existItems, 'md-overlay-pane': true }">
+                        <md-list-item (click)="select(item)" *ngFor="let item of items">
+                            <h3 md-line> {{item.name}} </h3>
+                            <p md-line><span> {{item.shortDescription}} </span> </p>
+                        </md-list-item>
+                    </md-list>
+                </div>
+                <!-- TODO make this searchable
                         <party-search (onChooseParty)="getSelectedSponsor($event)"></party-search>-->
-                </div>
-                <div class="col-lg-4">
-                    <md-input class="full-width" placeholder="Tipo de auspiciador (e.g. Golden o Platinum) " formControlName="type" #sponsorType>
-                    </md-input>
-                </div>
-                <div class="col-lg-2">
-                    <button [disabled]="!form.valid" type="submit" md-fab>
+            </div>
+            <div class="col-lg-4">
+                <md-input class="full-width" placeholder="Tipo de auspiciador (e.g. Golden o Platinum)" [(ngModel)]="type">
+                </md-input>
+            </div>
+            <div class="col-lg-2">
+                <button (click)="addSponsor()" type="button" md-fab>
                 <md-icon class="md-24">add</md-icon>
             </button>
-                </div>
             </div>
-        </form>
+        </div>
+
         <!--<div class="row" *ngFor="let sponsorType of sponsorTypes.keys()">
           <h3>{{sponsorType}}</h3>
         </div>-->

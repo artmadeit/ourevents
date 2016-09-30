@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PersonService } from './person/index';
 import { PartyService } from './party.service';
 import { PartySearchComponent } from './party-search.component';
+import { OrganizationService } from './organization/index';
 import { SharedModule } from '../../shared.module';
 
 @NgModule({
@@ -16,7 +17,8 @@ import { SharedModule } from '../../shared.module';
     ],
     providers: [
         PersonService,
-        PartyService
+        PartyService,
+        OrganizationService
     ],
 })
 export class PartyModule { }

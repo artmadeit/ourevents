@@ -44,6 +44,10 @@
         main: './index.js',
         defaultExtension: 'js'
       },
+      'ng2-custom-validation': {
+        main: './index.js',
+        defaultExtension: 'js'
+      },
       'angular2-in-memory-web-api': {
         main: './index.js',
         defaultExtension: 'js'
@@ -95,10 +99,6 @@
       '@angular2-material/radio': {
         format: 'cjs',
         main: 'radio.umd.js'
-      },
-      'ng2-custom-validation': {
-        main: './index.js',
-        defaultExtension: 'js'
       }  
     }
   });

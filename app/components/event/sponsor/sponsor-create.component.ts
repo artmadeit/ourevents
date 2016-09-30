@@ -1,41 +1,29 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Event, EventRole, EventRoleTypes } from '../index';
-import { Party } from '../../party/party';
 
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Event, EventRole, EventRoleTypes } from '../index';
+import { Organization, OrganizationService } from '../../party/index';
+import { SearchComponent } from '../../common/search/search.component';
 
 @Component({
     moduleId: module.id,
     selector: 'sponsor-create',
     templateUrl: 'sponsor-create.component.html'
 })
-export class SponsorCreateComponent implements OnInit {
-    @Input()
-    event: Event;
-    form: FormGroup;
-    private selectedOrganization: any;
+export class SponsorCreateComponent extends SearchComponent implements OnInit {
+    @Input() event: Event;
+    organization: Organization = new Organization('');
+    type: string;
 
-    constructor(private formBuilder: FormBuilder) { }
-
-    ngOnInit() {
-        this.buildForm();
+    constructor(service: OrganizationService) {
+        super(service);
     }
 
-    private buildForm() {
-        this.form = this.formBuilder.group(
-            {
-                'name': ['', [Validators.required]],
-                'type': ['', [Validators.required]]
-            });
-    }
-
-    getSelectedSponsor(selectedSponsor: Party) {
-        this.selectedOrganization = selectedSponsor;
+    select(organization: Organization) {
+        super.onSelect();
+        this.organization = organization;
     }
 
     addSponsor() {
-        EventRole.create(this.selectedOrganization, this.event, EventRoleTypes.Sponsor, this.form.value['type']);
-        this.form.reset();
+        EventRole.create(this.organization, this.event, EventRoleTypes.Sponsor, this.type);
     }
-
 }
