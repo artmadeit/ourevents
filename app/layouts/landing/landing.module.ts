@@ -15,8 +15,7 @@ import { EventCreateComponent } from '../../components/event/event-create.compon
 import { EventDetailComponent } from '../../components/event/event-detail.component';
 import { SponsorCreateComponent } from '../../components/event/sponsor/sponsor-create.component';
 import { EventService } from '../../components/event/event.service';
-import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
-//until here
+// until here
 
 import { landingRouting } from './landing.routing';
 
@@ -28,7 +27,6 @@ import { landingRouting } from './landing.routing';
         }),
         AuthModule,
         PartyModule,
-        Ng2AutoCompleteModule,
         landingRouting
     ],
     exports: [],
