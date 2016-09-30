@@ -8,36 +8,50 @@
         Auspiciadores
     </md-toolbar>
     <md-card-content>
-        <div class="row">
-            <div class="col-lg-4">
-                <md-input class="full-width" placeholder="Busca por nombre una organización" [(ngModel)]="organization.name" 
-                    #searchBox (keyup)="search(searchBox.value)">
-                </md-input>
-                <div *ngIf="!isItemSelected">
-                    <md-list [ngClass]="{'md-menu': existItems, 'md-overlay-pane': true }">
-                        <md-list-item (click)="select(item)" *ngFor="let item of items">
-                            <h3 md-line> {{item.name}} </h3>
-                            <p md-line><span> {{item.shortDescription}} </span> </p>
-                        </md-list-item>
-                    </md-list>
+        <form (ngSubmit)="addSponsor()" #sponsorForm="ngForm">
+            <div class="row">
+                <div class="col-lg-4">
+                    <md-input class="full-width" name="searchText" [(ngModel)]="searchText" placeholder="Busca por nombre una organización" #searchBox
+                        (keyup)="search(searchBox.value)" required>
+                    </md-input>
+                    <div [hidden]="(!searchText || 0 === searchText.length) || isItemSelected">
+                        <md-list class="md-menu md-overlay-pane">
+                            <div *ngIf="existItems">
+                                <md-list-item (click)="select(item)" *ngFor="let item of items">
+                                    <h3 md-line> {{item.name}} </h3>
+                                    <p md-line><span> {{item.shortDescription}} </span> </p>
+                                    <p>{{isItemSelected}}</p>
+                                </md-list-item>
+                            </div>
+                            <div *ngIf="!existItems">
+                                <md-list-item>
+                                    <h3 md-line>Agregar a {{searchText}} como empresa</h3>
+                                    <p>{{isItemSelected}}</p>
+                                </md-list-item>
+                            </div>
+                        </md-list>
+                    </div>
                 </div>
-                <!-- TODO make this searchable
-                        <party-search (onChooseParty)="getSelectedSponsor($event)"></party-search>-->
+                <div class="col-lg-4">
+                    <md-input class="full-width" name="type" [(ngModel)]="type" placeholder="Tipo de auspiciador (e.g. Golden o Platinum)" required>
+                    </md-input>
+                </div>
+                <div class="col-lg-2">
+                    <button md-fab type="submit" [disabled]="!isItemSelected || !sponsorForm.form.valid">
+                        <md-icon class="md-24">add</md-icon>
+                    </button>
+                </div>
             </div>
-            <div class="col-lg-4">
-                <md-input class="full-width" placeholder="Tipo de auspiciador (e.g. Golden o Platinum)" [(ngModel)]="type">
-                </md-input>
+        </form>
+        <!--<div *ngIf="!!event.sponsorsByType">
+            <div class="row" *ngFor="let sponsorType of Object.keys(event.sponsorsByType)">
+                {{sponsorType}}
+                <div class="row" *ngFor="let sponsor of event.sponsorsByType['sponsorType']">
+                    {{sponsor}}
+                </div>
             </div>
-            <div class="col-lg-2">
-                <button (click)="addSponsor()" type="button" md-fab>
-                <md-icon class="md-24">add</md-icon>
-            </button>
-            </div>
-        </div>
-
-        <!--<div class="row" *ngFor="let sponsorType of sponsorTypes.keys()">
-          <h3>{{sponsorType}}</h3>
         </div>-->
+
         <!--TODO ngFor for every sponsorType
 
         <!--organization-search like institutions, projects, companies-->

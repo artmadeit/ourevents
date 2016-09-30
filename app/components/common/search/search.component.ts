@@ -12,14 +12,15 @@ import 'rxjs/add/operator/switchMap';
 
 export class SearchComponent {
     isItemSelected: boolean = false;
-    items: Searchable[];
+    items: Searchable[] = [];
     private searchTerms = new Subject<string>();
+    searchText: string;
 
     constructor(private searcher: Searcher) {
     }
 
     ngOnInit() {
-        const parties: Observable<Searchable[]> =
+        const observableItems: Observable<Searchable[]> =
             this.searchTerms
                 .debounceTime(300)        // wait for 300ms pause in events
                 .distinctUntilChanged()   // ignore if next search term is same as previous
@@ -33,13 +34,14 @@ export class SearchComponent {
                     return Observable.of<Searchable[]>([]);
                 });
 
-        parties.subscribe((data: Searchable[]) => {
+        observableItems.subscribe((data: Searchable[]) => {
             this.items = data;
         });
     }
 
     search(term: string): void {
         this.isItemSelected = false;
+        this.searchText = term;
         this.searchTerms.next(term);
     }
 

@@ -6,8 +6,8 @@ export abstract class Party implements Searchable, Nameable {
   id?: number;
   shortDescription: string;
   abstract get name(): string;
-  private parentAccountabilities: Set<Accountability>;
-  private childAccountabilities: Set<Accountability>;
+  protected parentAccountabilities: Set<Accountability>;
+  protected childAccountabilities: Set<Accountability>;
 
 
   constructor() {

@@ -18,7 +18,8 @@ export class EventRoleType extends AccountabilityType {
 }
 
 export class EventRoleTypes {
-    static Sponsor = new EventRoleType('Sponsor');
+
+    static Sponsor = new EventRoleType('Sponsor'); // TODO should be a subtype of event role
     static Author = new EventRoleType('Autor');
     static Speaker = new EventRoleType('Expositor');
     static Attendance = new EventRoleType('Atendiente');

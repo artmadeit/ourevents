@@ -1,5 +1,5 @@
-import { Party, Person } from '../party/index';
-import { EventRoleTypes } from './index';
+import { Party, Person, Organization } from '../party/index';
+import { EventRoleTypes, EventRole } from './index';
 
 export class Event extends Party {
   private _name: string;
@@ -25,6 +25,22 @@ export class Event extends Party {
 
   get speakers(): Person[] {
     return this.parents(EventRoleTypes.Speaker) as Person[];
+  }
+
+  get sponsorsByType(): Map<string, Organization[]> {
+    return Array.from(this.parentAccountabilities)
+      .filter((childAccountability) => childAccountability.type.name === EventRoleTypes.Sponsor.name)
+      .reduce((result, sponsorAccountability) => {
+        const sponsorType = (<EventRole>sponsorAccountability).synonym;
+        if (result.has(sponsorType)) {
+          let sponsors = result.get(sponsorType);
+          sponsors.push(sponsorAccountability.child as Organization);
+          result.set(sponsorType, sponsors);
+        } else {
+          result.set(sponsorType, [sponsorAccountability.child as Organization]);
+        }
+        return result;
+      }, new Map<string, Organization[]>());
   }
 }
 
