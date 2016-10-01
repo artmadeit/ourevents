@@ -17,6 +17,8 @@ import { MdInputModule } from '@angular2-material/input';
 import { MdMenuModule } from '@angular2-material/menu';
 import { MdRadioModule } from '@angular2-material/radio';
 
+import { KeyValuePipe } from './components/shared/key-value.pipe';
+
 @NgModule({
     imports: [
         MdMenuModule.forRoot(),
@@ -38,9 +40,12 @@ import { MdRadioModule } from '@angular2-material/radio';
         MdListModule,
         MdInputModule,
         MdMenuModule,
-        MdRadioModule
+        MdRadioModule,
+        KeyValuePipe
     ],
-    declarations: [],
+    declarations: [
+        KeyValuePipe
+    ],
     providers: [],
 })
 export class SharedModule { }
