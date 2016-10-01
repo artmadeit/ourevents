@@ -43,17 +43,14 @@
                 </div>
             </div>
         </form>
-        <!--<div *ngIf="!!event.sponsorsByType">
-            <div class="row" *ngFor="let sponsorType of Object.keys(event.sponsorsByType)">
-                {{sponsorType}}
-                <div class="row" *ngFor="let sponsor of event.sponsorsByType['sponsorType']">
-                    {{sponsor}}
+        <!--TODO change this to [key, value] iterator when angular 2 improve it-->
+        <div *ngIf="event && event.sponsorsByType.size > 0">
+            <div class="row" *ngFor="let sponsorType of event.sponsorsByType | keyValue">
+                {{sponsorType.key}}
+                <div class="row" *ngFor="let sponsor of sponsorType.value">
+                    {{sponsor.name}}
                 </div>
             </div>
-        </div>-->
-
-        <!--TODO ngFor for every sponsorType
-
-        <!--organization-search like institutions, projects, companies-->
+        </div>
     </md-card-content>
 </md-card>

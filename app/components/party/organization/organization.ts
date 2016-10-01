@@ -1,5 +1,8 @@
 import { Party } from '../party';
 
+/**
+ * An organization can be an institution, project or company
+ */
 export class Organization extends Party {
     private _name: string;
 

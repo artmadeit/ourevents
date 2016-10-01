@@ -34,10 +34,10 @@ export class Event extends Party {
         const sponsorType = (<EventRole>sponsorAccountability).synonym;
         if (result.has(sponsorType)) {
           let sponsors = result.get(sponsorType);
-          sponsors.push(sponsorAccountability.child as Organization);
+          sponsors.push(sponsorAccountability.parent as Organization);
           result.set(sponsorType, sponsors);
         } else {
-          result.set(sponsorType, [sponsorAccountability.child as Organization]);
+          result.set(sponsorType, [sponsorAccountability.parent as Organization]);
         }
         return result;
       }, new Map<string, Organization[]>());

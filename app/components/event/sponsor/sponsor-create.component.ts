@@ -26,6 +26,7 @@ export class SponsorCreateComponent extends SearchComponent implements OnInit {
     addSponsor() {
         EventRole.create(this.organization, this.event, EventRoleTypes.Sponsor, this.type);
         this.clear();
+        console.log(this.event.sponsorsByType);
     }
 
     private clear() {
